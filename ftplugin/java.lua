@@ -1,7 +1,8 @@
+local jdtls = require('jdtls')
+local dap = require('dap')
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = '/home/kenshin/.cache/eclipse/' .. project_name
-local jdtls = require('jdtls')
 -- Helper function for creating keymaps
 function noremap(rhs, lhs, bufopts, desc)
   bufopts.desc = desc
@@ -11,7 +12,7 @@ end
 -- The on_attach function is used to set key maps after the language server
 -- attaches to the current buffer
 local on_attach = function(client, bufnr)
-  -- Regular Neovim LSP client keymappings
+-----------------------REGULAR LSP KEYMAPS----------------------------------
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
   -- noremap('<space>wa', vim.lsp.buf.add_workspace_folder, bufopts, "Add workspace folder")
   -- noremap('<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts, "Remove workspace folder")
@@ -27,24 +28,40 @@ local on_attach = function(client, bufnr)
   noremap("gs", vim.lsp.buf.signature_help, bufopts, "Show signature")
   noremap("<leader>rn", vim.lsp.buf.rename, bufopts, "Rename")
   noremap("K", vim.lsp.buf.hover, bufopts, "Hover text")
-  -- noremap("<leader>f", vim.diagnostic.open_float, bufopts)
+  noremap("<leader>f", vim.diagnostic.open_float, bufopts)
   noremap("gl", vim.diagnostic.open_float, bufopts)
-  noremap("[d", vim.diagnostic.goto_prev({ border = "rounded" }), bufopts)
-  noremap("]d", vim.diagnostic.goto_next({ border = "rounded" }), bufopts)
+  noremap("[d", function() vim.diagnostic.goto_prev({ border = "rounded" }) end, bufopts)
+  noremap("]d", function() vim.diagnostic.goto_next({ border = "rounded" }) end, bufopts)
   noremap("<leader>q", vim.diagnostic.setloclist, bufopts)
   noremap("<leader>ca", vim.lsp.buf.code_action, bufopts, "Code actions")
   vim.keymap.set('v', "<space>ca", "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
     { noremap=true, silent=true, buffer=bufnr, desc = "Code actions" })
   noremap('<space>f', function() vim.lsp.buf.format { async = true } end, bufopts, "Format file")
-
---------------------------------
-
-  -- Java extensions provided by jdtls
+-------------------Java extensions provided by jdtls--------------------------
   noremap("<C-o>", jdtls.organize_imports, bufopts, "Organize imports")
   noremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
   noremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
   vim.keymap.set('v', "<space>em", [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
     { noremap=true, silent=true, buffer=bufnr, desc = "Extract method" })
+-----------------------------NVIM-DAP---------------------------------------------
+  noremap("<leader>bb", dap.toggle_breakpoint, bufopts, "Set breakpoint")
+  -- noremap("<leader>bc", dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')), bufopts, "Set conditional breakpoint")
+  -- noremap("<leader>bl", dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')), bufopts, "Set log point")
+  noremap('<leader>br', dap.clear_breakpoints, bufopts, "Clear breakpoints")
+  noremap('<leader>ba', '<cmd>Telescope dap list_breakpoints<cr>', bufopts, "List breakpoints")
+
+  noremap("<leader>dc", dap.continue, bufopts, "Continue")
+  noremap("<leader>dj", dap.step_over, bufopts, "Step over")
+  noremap("<leader>dk", dap.step_into, bufopts, "Step into")
+  noremap("<leader>do", dap.step_out, bufopts, "Step out")
+  noremap('<leader>dd', dap.disconnect, bufopts, "Disconnect")
+  noremap('<leader>dt', dap.terminate, bufopts, "Terminate")
+  noremap("<leader>dr", dap.repl.toggle, bufopts, "Open REPL")
+  noremap("<leader>dl", dap.run_last, bufopts, "Run last")
+  noremap('<leader>di', function() require"dap.ui.widgets".hover() end, bufopts, "Variables")
+  noremap('<leader>d?', function() local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes) end, bufopts, "Scopes")
+  noremap('<leader>dh', '<cmd>Telescope dap commands<cr>', bufopts, "List commands")
+  noremap('<leader>df', '<cmd>Telescope dap frames<cr>', bufopts, "List frames")
 end
 -- for completions
 local config = {
@@ -90,7 +107,7 @@ local config = {
   -- 💀
   -- This is the default if not provided, you can remove it. Or adjust as needed.
   -- One dedicated LSP server & client will be started per unique root_dir
-  root_dir = require('jdtls.setup').find_root({'.git', 'mvnw', 'gradlew'}),
+  root_dir =jdtls.setup.find_root({'.git', 'mvnw', 'gradlew'}),
 
   -- Here you can configure eclipse.jdt.ls specific settings
   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
@@ -120,9 +137,11 @@ local config = {
   --
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
-    bundles = {}
+    bundles = {
+      "/home/kenshin/.config/nvm/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.48.0.jar"
+    };
   },
 }
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
-require('jdtls').start_or_attach(config)
+jdtls.start_or_attach(config)
