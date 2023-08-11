@@ -1,2 +1,5 @@
 plugin/
 .netrwhist
+jdtls/
+java-debug/
+vscode-java-test

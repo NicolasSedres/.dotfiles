@@ -64,6 +64,7 @@ return packer.startup(function(use)
   use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
   -- LSP FOR JAVA 
   use 'mfussenegger/nvim-jdtls'
+  use 'mfussenegger/nvim-dap'
   -----------------------------------------------------------------------------------
   -- Telescope
   use "nvim-telescope/telescope.nvim"
