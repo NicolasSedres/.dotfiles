@@ -1,5 +1,4 @@
 local jdtls = require('jdtls')
-local dap = require('dap')
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
 local workspace_dir = '/home/kenshin/.cache/eclipse/' .. project_name
@@ -43,25 +42,6 @@ local on_attach = function(client, bufnr)
   noremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
   vim.keymap.set('v', "<space>em", [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
     { noremap=true, silent=true, buffer=bufnr, desc = "Extract method" })
------------------------------NVIM-DAP---------------------------------------------
-  noremap("<leader>bb", dap.toggle_breakpoint, bufopts, "Set breakpoint")
-  -- noremap("<leader>bc", dap.set_breakpoint(vim.fn.input('Breakpoint condition: ')), bufopts, "Set conditional breakpoint")
-  -- noremap("<leader>bl", dap.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')), bufopts, "Set log point")
-  noremap('<leader>br', dap.clear_breakpoints, bufopts, "Clear breakpoints")
-  noremap('<leader>ba', '<cmd>Telescope dap list_breakpoints<cr>', bufopts, "List breakpoints")
-
-  noremap("<leader>dc", dap.continue, bufopts, "Continue")
-  noremap("<leader>dj", dap.step_over, bufopts, "Step over")
-  noremap("<leader>dk", dap.step_into, bufopts, "Step into")
-  noremap("<leader>do", dap.step_out, bufopts, "Step out")
-  noremap('<leader>dd', dap.disconnect, bufopts, "Disconnect")
-  noremap('<leader>dt', dap.terminate, bufopts, "Terminate")
-  noremap("<leader>dr", dap.repl.toggle, bufopts, "Open REPL")
-  noremap("<leader>dl", dap.run_last, bufopts, "Run last")
-  noremap('<leader>di', function() require"dap.ui.widgets".hover() end, bufopts, "Variables")
-  noremap('<leader>d?', function() local widgets=require"dap.ui.widgets";widgets.centered_float(widgets.scopes) end, bufopts, "Scopes")
-  noremap('<leader>dh', '<cmd>Telescope dap commands<cr>', bufopts, "List commands")
-  noremap('<leader>df', '<cmd>Telescope dap frames<cr>', bufopts, "List frames")
 end
 -- for completions
 local config = {
@@ -138,7 +118,25 @@ local config = {
   -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
   init_options = {
     bundles = {
-      "/home/kenshin/.config/nvm/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.48.0.jar"
+      "/home/kenshin/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.48.0.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/com.microsoft.java.test.plugin-0.39.1.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/com.microsoft.java.test.runner-jar-with-dependencies.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-jupiter-api_5.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-jupiter-engine_5.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-jupiter-migrationsupport_5.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-jupiter-params_5.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-platform-commons_1.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-platform-engine_1.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-platform-launcher_1.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-platform-runner_1.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-platform-suite-api_1.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-platform-suite-commons_1.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-platform-suite-engine_1.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/junit-vintage-engine_5.9.3.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/org.apiguardian.api_1.1.2.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/org.eclipse.jdt.junit4.runtime_1.3.0.v20220609-1843.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/org.eclipse.jdt.junit5.runtime_1.1.100.v20220907-0450.jar",
+      -- "/home/kenshin/.config/nvim/vscode-java-test/server/org.opentest4j_1.2.0.jar",
     };
   },
 }

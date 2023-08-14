@@ -77,4 +77,3 @@ keymap("n", "<leader>nh", ":nohl<CR>",opts)
 
 -- delete single character without copying into register
 keymap("n", "x", '"_x',opts)
-
