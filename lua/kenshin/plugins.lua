@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   ------------------- SamuPlugins----------------------------------------------------
   use { "catppuccin/nvim", as = "catppuccin" } --colorscheme
+  use "rebelot/kanagawa.nvim"
     -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -84,7 +85,7 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   --file explorer
-  use "nvim-tree/nvim-tree.lua"
+  use "kevinhwang91/rnvimr"
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator")
   use("szw/vim-maximizer") -- maximizes and restores current window

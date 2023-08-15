@@ -21,7 +21,7 @@ vim.g.maplocalleader = " "
 -- Normal --
 --OpenFileExplorer
 --keymap("n", "<leader>pv", ":Lex 30<cr>", opts)
-keymap("n", "<leader>pv", "<cmd>NvimTreeToggle<cr>", opts)
+keymap("n", "<leader>pv", "<cmd>RnvimrToggle<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -56,14 +56,13 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Search --
 keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
---keymap("n", "<leader>pf", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<leader>ps","<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>pb","<cmd>Telescope buffers<cr>", opts)
 
 -- -- window management
 keymap("n", "<leader>sv", "<C-w>v",opts) -- split window vertically
 keymap("n", "<leader>sh", "<C-w>s",opts) -- split window horizontally
-keymap("n", "<leader>se", "<C-w>=",opts) -- make split windows equal width & height
+keymap("n", "<leader>sr", "<C-w>=",opts) -- make split windows equal width & height
 keymap("n", "<leader>sx", ":close<CR>",opts) -- close current split window
 
 keymap("n", "<leader>to", ":tabnew<CR>",opts) -- open new tab

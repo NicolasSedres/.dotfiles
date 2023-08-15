@@ -20,3 +20,49 @@ export M2_HOME="/usr/share/maven/mvn/apache-maven-3.3.9"
 export PATH=$M2_HOME/bin:$PATH
 --------------------------------------
 download and compile java-debug and vscode-java-test.
+--------------------------------------
+#COMENT THOSE LINES ON BASHRC---
+# if [ "$color_prompt" = yes ]; then
+    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# else
+    # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# fi
+# ----------------------------CUSTOM-PROMPT---paste-this-on-bashrc---------------------------------------------------------------
+# Function to update the PS1 prompt
+update_ps1_prompt() {
+    if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        GIT_BRANCH=$(git symbolic-ref --short HEAD 2>/dev/null)
+        if [ -n "$GIT_BRANCH" ]; then
+          if git diff --quiet; then
+             PS1='\[\e[9;48;5;88m\]人斬り\e[0m\[\e[97;48;5;88m\]👹\e[0m\[\e[38;5;88;107m\]\[\e[38;5;88;107m\] \w\[\e[97;48;5;34m\]\[\e[48;5;34m\]  ($GIT_BRANCH)\[\e[0;38;5;34m\] \[\e[0m\]'           
+          else
+             PS1='\[\e[9;48;5;88m\]人斬り\e[0m\[\e[97;48;5;88m\]👹\e[0m\[\e[38;5;88;107m\]\[\e[38;5;88;107m\] \w\[\e[97;48;5;214m\]\[\e[97;48;5;214m\]  ($GIT_BRANCH)\[\e[0;38;5;214m\] \[\e[0m\]'
+          fi
+        else
+          PS1='\[\e[9;48;5;88m\]人斬り\e[0m\[\e[97;48;5;88m\]👹\e[0m\[\e[38;5;88;107m\]\[\e[38;5;88;107m\] \w\[\e[0;97m\] \[\e[0m\]'
+        fi
+    else
+      PS1='\[\e[9;48;5;88m\]人斬り\e[0m\[\e[97;48;5;88m\]👹\e[0m\[\e[38;5;88;107m\]\[\e[38;5;88;107m\] \w\[\e[0;97m\] \[\e[0m\]'
+    fi
+}
+cd() {
+    builtin cd "$@"
+    update_ps1_prompt
+}
+git() {
+    if [[ $1 == "checkout" ]]; then
+        shift
+        command git checkout "$@"
+        update_ps1_prompt
+    elif [[ $1 == "status" ]]; then
+        shift
+        command git status "$@"
+        update_ps1_prompt
+    else
+        command git "$@"
+    fi
+}
+
+update_ps1_prompt
+# -------------------------------------------------------------------------------------------------------
+
