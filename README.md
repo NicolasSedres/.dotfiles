@@ -1,4 +1,3 @@
-sudo apt update
 sudo apt install build-essential
 sudo apt install ripgrep
 ---------------------------------
@@ -21,12 +20,6 @@ export PATH=$M2_HOME/bin:$PATH
 --------------------------------------
 download and compile java-debug and vscode-java-test.
 --------------------------------------
-#COMENT THOSE LINES ON BASHRC---
-# if [ "$color_prompt" = yes ]; then
-    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-# else
-    # PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-# fi
 # ----------------------------CUSTOM-PROMPT---paste-this-on-bashrc---------------------------------------------------------------
 # Function to update the PS1 prompt
 update_ps1_prompt() {
