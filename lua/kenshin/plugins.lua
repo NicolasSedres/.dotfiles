@@ -81,13 +81,14 @@ return packer.startup(function(use)
   use "lewis6991/gitsigns.nvim"
   --Tabs
   use "kyazdani42/nvim-web-devicons"
-  use "akinsho/bufferline.nvim"
   use "moll/vim-bbye"
   --file explorer
   use "kevinhwang91/rnvimr"
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator")
   use("szw/vim-maximizer") -- maximizes and restores current window
+  --STATUS-LINE-
+  use "nvim-lualine/lualine.nvim"
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
