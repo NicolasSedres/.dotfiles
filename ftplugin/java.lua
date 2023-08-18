@@ -98,11 +98,11 @@ local config = {
         runtimes = {
           {
             name = "JavaSE-1.8",
-            path = "/usr/lib/jvm/jdk8/",
+            path = "/home/kenshin/.sdkman/candidates/java/8.0.382-amzn",
           },
           {
             name = "JavaSE-17",
-            path = "/usr/lib/jvm/jdk17/",
+            path = "/home/kenshin/.sdkman/candidates/java/17.0.8-amzn",
           },
         }
       }
