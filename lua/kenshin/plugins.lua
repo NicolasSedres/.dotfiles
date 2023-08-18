@@ -45,8 +45,9 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   ------------------- SamuPlugins----------------------------------------------------
-  use "rebelot/kanagawa.nvim"
-    -- cmp plugins
+  use "rebelot/kanagawa.nvim"--theme
+
+  -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
@@ -54,21 +55,24 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
+
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/mason.nvim" -- simple to use language server installer
   use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
   use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
+
   -- LSP FOR JAVA 
   use 'mfussenegger/nvim-jdtls'
-  -----------------------------------------------------------------------------------
   --Debugger
   use 'mfussenegger/nvim-dap'
   use 'rcarriga/nvim-dap-ui'
   use 'theHamsta/nvim-dap-virtual-text'
+
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use 'nvim-telescope/telescope-media-files.nvim'
@@ -78,17 +82,18 @@ return packer.startup(function(use)
   -- Easily comment stuff
   use {'numToStr/Comment.nvim',config = function()require('Comment').setup()end}
   --GitIntegration
+  use "tpope/vim-fugitive"
   use "lewis6991/gitsigns.nvim"
-  --Tabs
-  use "kyazdani42/nvim-web-devicons"
-  use "moll/vim-bbye"
   --file explorer
   use "kevinhwang91/rnvimr"
+  use "kyazdani42/nvim-web-devicons"
+  use "moll/vim-bbye"
   -- tmux & split window navigation
   use("christoomey/vim-tmux-navigator")
   use("szw/vim-maximizer") -- maximizes and restores current window
   --STATUS-LINE-
   use "nvim-lualine/lualine.nvim"
+--------------------------------------------------------------------------------------
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
