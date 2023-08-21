@@ -17,6 +17,16 @@ export XDG_DATA_HOME=~/.config/nvim-data
 # export JAVA_HOME="/usr/lib/jvm/jdk8"
 export M2_HOME="/usr/share/maven/mvn/apache-maven-3.3.9"
 export PATH=$M2_HOME/bin:$PATH
+function tssh() {
+  ssh -i /data/servers/ppk/devops-iac-cf.pem ec2-user@"$1"
+}
+function tscp() {
+  scp -i /data/servers/ppk/devops-iac-cf.pem ec2-user@"$1":"$2" "$3"
+}
+
+function tunneltssh() {
+  ssh -i /data/servers/ppk/devops-iac-cf.pem -L 5005:localhost:5005 ec2-user@"$1"
+}
 --------------------------------------
 download and compile java-debug and vscode-java-test.
 --------------------------------------
