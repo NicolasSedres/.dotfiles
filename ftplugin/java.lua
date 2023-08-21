@@ -104,6 +104,10 @@ local config = {
             name = "JavaSE-17",
             path = "/home/kenshin/.sdkman/candidates/java/17.0.8-amzn",
           },
+          {
+            name = "JavaSE-1.7",
+            path = "/home/kenshin/.sdkman/candidates/java/7.0.352-zulu",
+          },
         }
       }
     }
