@@ -44,6 +44,7 @@ local plugins = {
    "rcarriga/nvim-dap-ui",
    "theHamsta/nvim-dap-virtual-text",
    "rcarriga/cmp-dap",
+  "nvim-telescope/telescope-dap.nvim",
   -- Telescope
    "nvim-telescope/telescope.nvim",
    "nvim-telescope/telescope-media-files.nvim",
