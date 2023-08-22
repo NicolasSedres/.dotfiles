@@ -35,23 +35,23 @@ local plugins = {
    "neovim/nvim-lspconfig", -- enable LSP
    "williamboman/mason.nvim", -- simple to use language server installer
    "williamboman/mason-lspconfig.nvim", -- simple to use language server installer
-   'jose-elias-alvarez/null-ls.nvim', -- LSP diagnostics and code actions
+   "jose-elias-alvarez/null-ls.nvim", -- LSP diagnostics and code actions
 
   -- LSP FOR JAVA 
-   'mfussenegger/nvim-jdtls',
+   "mfussenegger/nvim-jdtls",
   --Debugger
-   'mfussenegger/nvim-dap',
-   'rcarriga/nvim-dap-ui',
-   'theHamsta/nvim-dap-virtual-text',
-
+   "mfussenegger/nvim-dap",
+   "rcarriga/nvim-dap-ui",
+   "theHamsta/nvim-dap-virtual-text",
+   "rcarriga/cmp-dap",
   -- Telescope
    "nvim-telescope/telescope.nvim",
-   'nvim-telescope/telescope-media-files.nvim',
+   "nvim-telescope/telescope-media-files.nvim",
   --treesitter
-  'nvim-treesitter/nvim-treesitter',
-   'p00f/nvim-ts-rainbow',
+  "nvim-treesitter/nvim-treesitter",
+   "p00f/nvim-ts-rainbow",
   -- Easily comment stuff
-   {'numToStr/Comment.nvim',config = function()require('Comment').setup()end},
+   {"numToStr/Comment.nvim",config = function()require("Comment").setup()end},
   --GitIntegration
    "tpope/vim-fugitive",
    "lewis6991/gitsigns.nvim",

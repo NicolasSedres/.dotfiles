@@ -45,12 +45,27 @@ dap.configurations.java = {
     hostName = "127.0.0.1";
     port = 5005;
   },
-    {
-    type = 'java';
-    request = 'attach';
-    name = "DEBUGTEST";
-    hostName = "127.0.0.1";
-    port = 8000;
-  },
-
 }
+
+function getTestRunner(testName,debug)
+  if debug then
+    return 'mvn test -Dmaven.surefire.debug -Dtest="' .. testName .. '"'
+  end
+  return 'mvn test -Dtest="' .. testName .. '"'
+end
+
+function runJavaTestMethod(debug)
+  local utils = require'utils'
+  local methodName = utils.get_current_full_method_name("\\#")
+  vim.cmd('term ' .. getTestRunner(methodName,debug))
+end
+
+function runJavaTestClass(debug)
+  local utils = require'utils'
+  local className = utils.get_current_full_class_name()
+  vim.cmd('term ' .. getTestRunner(className,debug))
+end
+
+noremap("<leader>tm", function() runJavaTestMethod() end, bufopts, "run test under cursor")
+noremap("<leader>tM", function() runJavaTestMethod(true) end, bufopts, "debug test under cursor")
+noremap("<leader>tc", function() runJavaTestClass() end, bufopts, "run all test from the class")
