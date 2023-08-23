@@ -66,6 +66,6 @@ function runJavaTestClass(debug)
   vim.cmd('term ' .. getTestRunner(className,debug))
 end
 
-noremap("<leader>tm", function() runJavaTestMethod() end, bufopts, "run test under cursor")
-noremap("<leader>tM", function() runJavaTestMethod(true) end, bufopts, "debug test under cursor")
+noremap("<leader>tM", function() runJavaTestMethod() end, bufopts, "run test under cursor")
+noremap("<leader>tm", function() runJavaTestMethod(true) end, bufopts, "debug test under cursor")
 noremap("<leader>tc", function() runJavaTestClass() end, bufopts, "run all test from the class")

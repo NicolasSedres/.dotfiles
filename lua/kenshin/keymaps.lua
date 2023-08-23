@@ -65,6 +65,7 @@ keymap("n", "<leader>sv", "<C-w>v",opts) -- split window vertically
 keymap("n", "<leader>sh", "<C-w>s",opts) -- split window horizontally
 keymap("n", "<leader>sr", "<C-w>=",opts) -- make split windows equal width & height
 keymap("n", "<leader>sx", ":close<CR>",opts) -- close current split window
+keymap("n", "<leader>bd", ":bd<CR>",opts) -- close current buffer 
 
 keymap("n", "<leader>to", ":tabnew<CR>",opts) -- open new tab
 keymap("n", "<leader>tx", ":tabclose<CR>",opts) -- close current tab

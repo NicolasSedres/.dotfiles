@@ -13,10 +13,8 @@ alias wsl2ip="ip addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 export PATH="/usr/lib/jvm/jdk17/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/snap/bin"
 export XDG_CONFIG_HOME=~/.config
 export XDG_DATA_HOME=~/.config/nvim-data
-# export PATH="/usr/lib/jvm/jdk17/bin:$PATH"
-# export JAVA_HOME="/usr/lib/jvm/jdk8"
-export M2_HOME="/usr/share/maven/mvn/apache-maven-3.3.9"
-export PATH=$M2_HOME/bin:$PATH
+alias tlog='less ../logs/catalina.out'
+alias rmtlog='rm ../logs/*'
 function tssh() {
   ssh -i /data/servers/ppk/devops-iac-cf.pem ec2-user@"$1"
 }
