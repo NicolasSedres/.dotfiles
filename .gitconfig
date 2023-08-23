@@ -1,0 +1,5 @@
+[user]
+	email = samu@example.com
+	name = Himura Kenshin
+[credential]
+	helper = store
