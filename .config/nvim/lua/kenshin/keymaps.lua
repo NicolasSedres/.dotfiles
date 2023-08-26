@@ -20,7 +20,8 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 --OpenFileExplorer
-keymap("n", "<leader>pv", ":Lex 30<cr>", opts)
+keymap("n", "<leader>pV", ":Lex 30<cr>", opts)
+keymap("n", "<leader>pv", ":Ex <cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
