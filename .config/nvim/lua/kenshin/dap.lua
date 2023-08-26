@@ -47,6 +47,23 @@ dap.configurations.java = {
   },
 }
 
+function getSpringBootRunner(profile, debug)
+  local debugParam = ""
+  if debug then
+    debugParam = ' -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"'
+  end
+
+  local profilePram = ""
+  if profile then
+    profilePram = " -Dspring-boot.run.profiles=" .. profile .. " "
+  end
+  return 'mvn spring-boot:run ' .. profilePram .. debugParam
+end
+
+function runSpringBoot(debug)
+  vim.cmd('term ' .. getSpringBootRunner('local', debug))
+end
+
 function getTestRunner(testName,debug)
   if debug then
     return 'mvn test -Dmaven.surefire.debug -Dtest="' .. testName .. '"'
@@ -66,6 +83,9 @@ function runJavaTestClass(debug)
   vim.cmd('term ' .. getTestRunner(className,debug))
 end
 
-noremap("<leader>tM", function() runJavaTestMethod() end, bufopts, "run test under cursor")
-noremap("<leader>tm", function() runJavaTestMethod(true) end, bufopts, "debug test under cursor")
+
+noremap("<F9>", function() runSpringBoot() end, bufopts, "run spring boot app")
+noremap("<F10>", function() runSpringBoot(true) end, bufopts, "run spring boot debug")
+noremap("<leader>tr", function() runJavaTestMethod() end, bufopts, "run test under cursor")
+noremap("<leader>tR", function() runJavaTestMethod(true) end, bufopts, "debug test under cursor")
 noremap("<leader>tc", function() runJavaTestClass() end, bufopts, "run all test from the class")

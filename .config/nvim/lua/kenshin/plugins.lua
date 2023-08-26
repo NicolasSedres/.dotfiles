@@ -57,7 +57,6 @@ local plugins = {
    "tpope/vim-fugitive",
    "lewis6991/gitsigns.nvim",
   --file explorer
-   "kevinhwang91/rnvimr",
    "kyazdani42/nvim-web-devicons",
    "moll/vim-bbye",
   -- tmux & split window navigation

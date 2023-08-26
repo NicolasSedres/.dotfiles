@@ -4,7 +4,6 @@ sudo pacman -S tmux
 sudo pacman -S nodejs npm
 sudo pacman -S ripgrep
 sudo pacman -S unzip zip
-sudo pacman -S ranger
 sudo pacman -S python
 sudo pacman -S python-pynvim
 sudo pacman -S python-ueberzug
