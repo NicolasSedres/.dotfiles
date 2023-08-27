@@ -2,7 +2,9 @@ local servers = {
   "lua_ls",
 	"pyright",
 	"jsonls",
-  "html",
+	"html",
+	"emmet_ls",
+	"cssls",
 }
 
 local settings = {
