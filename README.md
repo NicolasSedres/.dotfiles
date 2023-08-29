@@ -3,6 +3,7 @@ sudo pacman -S neovim
 sudo pacman -S tmux
 sudo pacman -S nodejs npm
 sudo pacman -S ripgrep
+sudo pacman -S fd
 sudo pacman -S unzip zip
 sudo pacman -S python
 sudo pacman -S python-pynvim
