@@ -8,6 +8,7 @@ sudo pacman -S unzip zip
 sudo pacman -S python
 sudo pacman -S python-pynvim
 sudo pacman -S python-ueberzug
+sudo pacman -S zenity
 curl -s "https://get.sdkman.io" | bash 
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 ln -s ~/.dotfiles/.bashrc ~/.bashrc

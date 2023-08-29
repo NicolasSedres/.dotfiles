@@ -85,6 +85,8 @@ local plugins = {
 	"szw/vim-maximizer", -- maximizes and restores current window
 	--STATUS-LINE-
 	"nvim-lualine/lualine.nvim",
+  --COLORPICKER
+  "KabbAmine/vCoolor.vim"
 }
 
 local opts = {}
