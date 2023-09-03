@@ -43,6 +43,8 @@ local plugins = {
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lua",
 
+  "windwp/nvim-autopairs",--auto close brackets
+
 	-- snippets
 	"L3MON4D3/LuaSnip", --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use

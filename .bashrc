@@ -44,6 +44,7 @@ git() {
 
 update_ps1_prompt
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+export PATH="$PATH:/home/kenshin/.local/bin"
 alias wsl2ip="ip addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}'"
 alias vim='nvim'
 export XDG_CONFIG_HOME=~/.config
