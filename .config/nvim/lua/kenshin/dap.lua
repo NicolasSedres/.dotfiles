@@ -86,6 +86,6 @@ end
 
 noremap("<F9>", function() runSpringBoot() end, bufopts, "run spring boot app")
 noremap("<F10>", function() runSpringBoot(true) end, bufopts, "run spring boot debug")
-noremap("<leader>tr", function() runJavaTestMethod() end, bufopts, "run test under cursor")
-noremap("<leader>tR", function() runJavaTestMethod(true) end, bufopts, "debug test under cursor")
+noremap("<leader>tm", function() runJavaTestMethod() end, bufopts, "run test under cursor")
+noremap("<leader>tM", function() runJavaTestMethod(true) end, bufopts, "debug test under cursor")
 noremap("<leader>tc", function() runJavaTestClass() end, bufopts, "run all test from the class")

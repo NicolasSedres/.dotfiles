@@ -56,6 +56,8 @@ local plugins = {
 	"jose-elias-alvarez/null-ls.nvim", -- LSP diagnostics and code actions
 	-- LSP FOR JAVA
 	"mfussenegger/nvim-jdtls",
+  --codeCoverage for jacoco
+  "dsych/blanket.nvim",
 
 	--Debugger
 	"mfussenegger/nvim-dap",
