@@ -42,13 +42,11 @@ local plugins = {
 	"saadparwaiz1/cmp_luasnip", -- snippet completions
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/cmp-nvim-lua",
-
-  "windwp/nvim-autopairs",--auto close brackets
-
+  --auto close brackets
+  "windwp/nvim-autopairs",
 	-- snippets
 	"L3MON4D3/LuaSnip", --snippet engine
 	"rafamadriz/friendly-snippets", -- a bunch of snippets to use
-
 	-- LSP
 	"neovim/nvim-lspconfig", -- enable LSP
 	"williamboman/mason.nvim", -- simple to use language server installer
@@ -58,7 +56,6 @@ local plugins = {
 	"mfussenegger/nvim-jdtls",
   --codeCoverage for jacoco
   "dsych/blanket.nvim",
-
 	--Debugger
 	"mfussenegger/nvim-dap",
 	"rcarriga/nvim-dap-ui",
@@ -81,6 +78,21 @@ local plugins = {
 	--GitIntegration
 	"tpope/vim-fugitive",
 	"lewis6991/gitsigns.nvim",
+  --DatabaseIntegration
+  "tpope/vim-dadbod",
+  "kristijanhusak/vim-dadbod-ui",
+  "kristijanhusak/vim-dadbod-completion",
+   {
+    "tpope/vim-dadbod",
+    opt = true,
+    requires = {
+      "kristijanhusak/vim-dadbod-ui",
+      "kristijanhusak/vim-dadbod-completion",
+    },
+    config = function()
+      require("kenshin.dadbod").setup()
+    end,
+  },
 	--file explorer
 	"kyazdani42/nvim-web-devicons",
 	"moll/vim-bbye",
