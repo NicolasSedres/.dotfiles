@@ -9,6 +9,7 @@ sudo pacman -S python
 sudo pacman -S python-pynvim
 sudo pacman -S python-ueberzug
 sudo pacman -S zenity
+sudo pacman -S docker
 curl -s "https://get.sdkman.io" | bash 
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
@@ -25,7 +26,9 @@ https://download.eclipse.org/jdtls/milestones/?d
 download and compile java-debug under nvim config folder.
 https://github.com/microsoft/java-debug
 Download and copy to jdtls folder the google format file https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml
----------------------------------
+-----------------------DOCKER---------------------------------------
+in order to work with docker from wsl2 you need to install docker on windows and from the docker desktop go to settings>resource>wsl integration> enable integration with my default wsl distro, enable additional distro.
+---------------------------------------------------------------------
 command to create a symbolyc link $ln -s ~/.dotfiles/originalfile ~/.config/simboliclink
 install any nerdfont
 copiar el m2 con todas las configuraciones a /home/user/.m2
