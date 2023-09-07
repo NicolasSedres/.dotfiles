@@ -24,6 +24,7 @@ download jdtls and put it under nvim config folder, also download lombok.jar and
 https://download.eclipse.org/jdtls/milestones/?d
 download and compile java-debug under nvim config folder.
 https://github.com/microsoft/java-debug
+Download and copy to jdtls folder the google format file https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml
 ---------------------------------
 command to create a symbolyc link $ln -s ~/.dotfiles/originalfile ~/.config/simboliclink
 install any nerdfont

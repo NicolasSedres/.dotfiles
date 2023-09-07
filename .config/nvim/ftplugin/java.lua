@@ -94,7 +94,56 @@ local config = {
   -- for a list of options
   settings = {
     java = {
+    autobuild = { enabled = false },
+    signatureHelp = { enabled = true };
+    contentProvider = { preferred = 'fernflower' };
+    saveActions = {
+      organizeImports = true,
+    },
+    completion = {
+      favoriteStaticMembers = {
+        "io.crate.testing.Asserts.assertThat",
+        "org.assertj.core.api.Assertions.assertThat",
+        "org.assertj.core.api.Assertions.assertThatThrownBy",
+        "org.assertj.core.api.Assertions.assertThatExceptionOfType",
+        "org.assertj.core.api.Assertions.catchThrowable",
+        "org.hamcrest.MatcherAssert.assertThat",
+        "org.hamcrest.Matchers.*",
+        "org.hamcrest.CoreMatchers.*",
+        "org.junit.jupiter.api.Assertions.*",
+        "java.util.Objects.requireNonNull",
+        "java.util.Objects.requireNonNullElse",
+        "org.mockito.Mockito.*",
+      },
+      filteredTypes = {
+        "com.sun.*",
+        "io.micrometer.shaded.*",
+        "java.awt.*",
+        "jdk.*",
+        "sun.*",
+      },
+    };
+    sources = {
+      organizeImports = {
+        starThreshold = 9999;
+        staticStarThreshold = 9999;
+      };
+    };
+    codeGeneration = {
+      toString = {
+        template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
+      },
+      hashCodeEquals = {
+        useJava7Objects = true,
+      },
+      useBlocks = true,
+    };
+      home = '/home/kenshin/.sdkman/candidates/java/17.0.8-amzn/',
+      eclipse = {
+        downloadSources = true,
+      },
       configuration = {
+        updateBuildConfiguration = "interactive",
         runtimes = {
           {
             name = "JavaSE-1.8",
@@ -108,8 +157,31 @@ local config = {
             name = "JavaSE-1.7",
             path = "/home/kenshin/.sdkman/candidates/java/7.0.352-zulu",
           },
+          {
+            name = "JavaSE-11",
+            path = "/home/kenshin/.sdkman/candidates/java/11.0.20-amzn",
+          },
         }
-      }
+      },
+      maven = {
+        downloadSources = true,
+      },
+      implementationsCodeLens = {
+        enabled = true,
+      },
+      referencesCodeLens = {
+        enabled = true,
+      },
+      references = {
+        includeDecompiledSources = true,
+      },
+      format = {
+        enabled = true,
+        settings = {
+          url = "/home/kenshin/.config/nvim/jdtls/intellij-java-google-style.xml",
+          profile = "GoogleStyle",
+        },
+      },
     }
   },
 
