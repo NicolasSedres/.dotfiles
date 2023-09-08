@@ -1,7 +1,7 @@
-local jdtls = require('jdtls')
+local jdtls = require("jdtls")
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
-local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
-local workspace_dir = '/home/kenshin/.cache/eclipse/' .. project_name
+local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+local workspace_dir = "/home/kenshin/.cache/eclipse/" .. project_name
 -- Helper function for creating keymaps
 function noremap(rhs, lhs, bufopts, desc)
   bufopts.desc = desc
@@ -11,8 +11,8 @@ end
 -- The on_attach function is used to set key maps after the language server
 -- attaches to the current buffer
 local on_attach = function(client, bufnr)
------------------------REGULAR LSP KEYMAPS----------------------------------
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  -----------------------REGULAR LSP KEYMAPS----------------------------------
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
   -- noremap('<space>wa', vim.lsp.buf.add_workspace_folder, bufopts, "Add workspace folder")
   -- noremap('<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts, "Remove workspace folder")
   -- noremap('<space>wl', function()
@@ -23,25 +23,39 @@ local on_attach = function(client, bufnr)
   noremap("gD", vim.lsp.buf.declaration, bufopts, "Go to declaration")
   noremap("gi", vim.lsp.buf.implementation, bufopts, "Go to implementation")
   noremap("gr", vim.lsp.buf.references, bufopts)
-  noremap('<space>D', vim.lsp.buf.type_definition, bufopts, "Go to type definition")
+  noremap("<space>D", vim.lsp.buf.type_definition, bufopts, "Go to type definition")
   noremap("gs", vim.lsp.buf.signature_help, bufopts, "Show signature")
   noremap("<leader>rn", vim.lsp.buf.rename, bufopts, "Rename")
   noremap("K", vim.lsp.buf.hover, bufopts, "Hover text")
   noremap("gl", vim.diagnostic.open_float, bufopts)
-  noremap("[d", function() vim.diagnostic.goto_prev({ border = "rounded" }) end, bufopts)
-  noremap("]d", function() vim.diagnostic.goto_next({ border = "rounded" }) end, bufopts)
+  noremap("[d", function()
+    vim.diagnostic.goto_prev({ border = "rounded" })
+  end, bufopts)
+  noremap("]d", function()
+    vim.diagnostic.goto_next({ border = "rounded" })
+  end, bufopts)
   noremap("<leader>gl", vim.diagnostic.setloclist, bufopts)
   noremap("<leader>ca", vim.lsp.buf.code_action, bufopts, "Code actions")
-  vim.keymap.set('v', "<space>ca", "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
-    { noremap=true, silent=true, buffer=bufnr, desc = "Code actions" })
-  noremap('<space>f', function() vim.lsp.buf.format { async = true } end, bufopts, "Format file")
--------------------Java extensions provided by jdtls--------------------------
+  vim.keymap.set(
+    "v",
+    "<space>ca",
+    "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
+    { noremap = true, silent = true, buffer = bufnr, desc = "Code actions" }
+  )
+  noremap("<space>f", function()
+    vim.lsp.buf.format({ async = true })
+  end, bufopts, "Format file")
+  -------------------Java extensions provided by jdtls--------------------------
   noremap("<C-o>", jdtls.organize_imports, bufopts, "Organize imports")
   noremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
   noremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
   noremap("<space>rl", jdtls.update_project_config, bufopts, "Update config")
-  vim.keymap.set('v', "<space>em", [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
-    { noremap=true, silent=true, buffer=bufnr, desc = "Extract method" })
+  vim.keymap.set(
+    "v",
+    "<space>em",
+    [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
+    { noremap = true, silent = true, buffer = bufnr, desc = "Extract method" }
+  )
 end
 -- for completions
 local config = {
@@ -52,7 +66,7 @@ local config = {
 
     -- 💀
     "/home/kenshin/.sdkman/candidates/java/17.0.8-amzn/bin/java", -- or "/path/to/java17_or_newer/bin/java"
-            -- depends on if `java` is in your $PATH env variable and if it points to the right version.
+    -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
@@ -62,83 +76,86 @@ local config = {
     "-javaagent:/home/kenshin/.config/nvim/jdtls/lombok.jar",
     "-Xmx1g",
     "--add-modules=ALL-SYSTEM",
-    "--add-opens", "java.base/java.util=ALL-UNNAMED",
-    "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+    "--add-opens",
+    "java.base/java.util=ALL-UNNAMED",
+    "--add-opens",
+    "java.base/java.lang=ALL-UNNAMED",
 
     -- 💀
-    "-jar", "/home/kenshin/.config/nvim/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
-         -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
-         -- Must point to the                                                     Change this to
-         -- eclipse.jdt.ls installation                                           the actual version
-
+    "-jar",
+    "/home/kenshin/.config/nvim/jdtls/plugins/org.eclipse.equinox.launcher_1.6.400.v20210924-0641.jar",
+    -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
+    -- Must point to the                                                     Change this to
+    -- eclipse.jdt.ls installation                                           the actual version
 
     -- 💀
-    "-configuration", "/home/kenshin/.config/nvim/jdtls/config_linux",
-                    -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
-                    -- Must point to the                      Change to one of `linux`, `win` or `mac`
-                    -- eclipse.jdt.ls installation            Depending on your system.
-
+    "-configuration",
+    "/home/kenshin/.config/nvim/jdtls/config_linux",
+    -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
+    -- Must point to the                      Change to one of `linux`, `win` or `mac`
+    -- eclipse.jdt.ls installation            Depending on your system.
 
     -- 💀
     -- See `data directory configuration` section in the README
-    "-data", workspace_dir
+    "-data",
+    workspace_dir,
   },
 
   -- 💀
   -- This is the default if not provided, you can remove it. Or adjust as needed.
   -- One dedicated LSP server & client will be started per unique root_dir
-  root_dir =jdtls.setup.find_root({'.git', 'mvnw', 'gradlew'}),
+  root_dir = jdtls.setup.find_root({ ".git", "mvnw", "gradlew" }),
 
   -- Here you can configure eclipse.jdt.ls specific settings
   -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
   -- for a list of options
   settings = {
     java = {
-    autobuild = { enabled = false },
-    signatureHelp = { enabled = true };
-    contentProvider = { preferred = 'fernflower' };
-    saveActions = {
-      organizeImports = true,
-    },
-    completion = {
-      favoriteStaticMembers = {
-        "io.crate.testing.Asserts.assertThat",
-        "org.assertj.core.api.Assertions.assertThat",
-        "org.assertj.core.api.Assertions.assertThatThrownBy",
-        "org.assertj.core.api.Assertions.assertThatExceptionOfType",
-        "org.assertj.core.api.Assertions.catchThrowable",
-        "org.hamcrest.MatcherAssert.assertThat",
-        "org.hamcrest.Matchers.*",
-        "org.hamcrest.CoreMatchers.*",
-        "org.junit.jupiter.api.Assertions.*",
-        "java.util.Objects.requireNonNull",
-        "java.util.Objects.requireNonNullElse",
-        "org.mockito.Mockito.*",
+      autobuild = { enabled = false },
+      signatureHelp = { enabled = true },
+      contentProvider = { preferred = "fernflower" },
+      saveActions = {
+        organizeImports = true,
       },
-      filteredTypes = {
-        "com.sun.*",
-        "io.micrometer.shaded.*",
-        "java.awt.*",
-        "jdk.*",
-        "sun.*",
+      completion = {
+        favoriteStaticMembers = {
+          "io.crate.testing.Asserts.assertThat",
+          "org.assertj.core.api.Assertions.assertThat",
+          "org.assertj.core.api.Assertions.assertThatThrownBy",
+          "org.assertj.core.api.Assertions.assertThatExceptionOfType",
+          "org.assertj.core.api.Assertions.catchThrowable",
+          "org.hamcrest.MatcherAssert.assertThat",
+          "org.hamcrest.Matchers.*",
+          "org.hamcrest.CoreMatchers.*",
+          "org.junit.jupiter.api.Assertions.*",
+          "java.util.Objects.requireNonNull",
+          "java.util.Objects.requireNonNullElse",
+          "org.mockito.Mockito.*",
+        },
+        filteredTypes = {
+          "com.sun.*",
+          "io.micrometer.shaded.*",
+          "java.awt.*",
+          "jdk.*",
+          "sun.*",
+        },
       },
-    };
-    sources = {
-      organizeImports = {
-        starThreshold = 9999;
-        staticStarThreshold = 9999;
-      };
-    };
-    codeGeneration = {
-      toString = {
-        template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}"
+      sources = {
+        organizeImports = {
+          starThreshold = 9999,
+          staticStarThreshold = 9999,
+        },
       },
-      hashCodeEquals = {
-        useJava7Objects = true,
+      codeGeneration = {
+        toString = {
+          template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+        },
+        hashCodeEquals = {
+          useJava7Objects = true,
+        },
+        useBlocks = true,
       },
-      useBlocks = true,
-    };
-      home = '/home/kenshin/.sdkman/candidates/java/17.0.8-amzn/',
+      home = "/home/kenshin/.sdkman/candidates/java/17.0.8-amzn/",
       eclipse = {
         downloadSources = true,
       },
@@ -161,7 +178,7 @@ local config = {
             name = "JavaSE-11",
             path = "/home/kenshin/.sdkman/candidates/java/11.0.20-amzn",
           },
-        }
+        },
       },
       maven = {
         downloadSources = true,
@@ -182,7 +199,7 @@ local config = {
           profile = "GoogleStyle",
         },
       },
-    }
+    },
   },
 
   -- Language server `initializationOptions`
@@ -213,7 +230,7 @@ local config = {
       -- "/home/kenshin/.config/nvim/vscode-java-test/server/org.eclipse.jdt.junit4.runtime_1.3.0.v20220609-1843.jar",
       -- "/home/kenshin/.config/nvim/vscode-java-test/server/org.eclipse.jdt.junit5.runtime_1.1.100.v20220907-0450.jar",
       -- "/home/kenshin/.config/nvim/vscode-java-test/server/org.opentest4j_1.2.0.jar",
-    };
+    },
   },
 }
 -- This starts a new client & server,

@@ -1,3 +1,2 @@
-require "kenshin.options"
-require "kenshin.keymaps"
-require "kenshin.lazy"
+require("kenshin.core")
+require("kenshin.lazy")
