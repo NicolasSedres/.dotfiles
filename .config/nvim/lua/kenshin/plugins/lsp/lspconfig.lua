@@ -1,6 +1,7 @@
 return {
 	"neovim/nvim-lspconfig", -- enable LSP
 	event = { "BufReadPre", "BufNewFile" },
+  ft = {"java"},
 	dependencies = {
 		"hrsh7th/cmp-cmdline", -- cmdline completions
 		"hrsh7th/cmp-nvim-lsp",
