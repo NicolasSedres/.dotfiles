@@ -6,12 +6,8 @@ return {
   "mfussenegger/nvim-jdtls",
   --codeCoverage for jacoco
   "dsych/blanket.nvim",
-  --file explorer
-  "kyazdani42/nvim-web-devicons",
-  "moll/vim-bbye",
   -- tmux & split window navigation
   "christoomey/vim-tmux-navigator",
-  "szw/vim-maximizer", -- maximizes and restores current window
   --COLORPICKER
   "KabbAmine/vCoolor.vim",
 }
