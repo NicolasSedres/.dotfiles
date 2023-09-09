@@ -1,5 +1,8 @@
 return {
   "mfussenegger/nvim-dap",
+  keys = {
+    {"<leader>db", ":DapToggleBreakpoint<CR>"}
+  },
   dependencies = {
     "rcarriga/nvim-dap-ui",
     "theHamsta/nvim-dap-virtual-text",
