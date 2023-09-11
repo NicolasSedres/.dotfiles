@@ -19,6 +19,10 @@ ln -s ~/.dotfiles/.config/nvim ~/.config/nvim
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 under tmux session ctrl a + I
 sudo npm install -g live-server
+------------------------CLOJURE-SPECIFICS---------------------------
+sudo pacman -S clojure 
+sudo pacman -S leiningen
+download zprint from https://github.com/kkinnear/zprint/blob/main/doc/getting/linux.md and put it into PATH
 ------------------------JAVA-SPECIFICS------------------------------
 sdk install java 17.0.8-amzn
 download jdtls and put it under nvim config folder, also download lombok.jar and put it under jdtls folder

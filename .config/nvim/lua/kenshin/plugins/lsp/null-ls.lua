@@ -16,6 +16,7 @@ return {
         -- formatting.yapf,
         formatting.stylua,
         formatting.xmllint,
+        formatting.zprint,
         diagnostics.flake8,
       },
     })
