@@ -57,8 +57,8 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Search --
 keymap("n", "<leader>pf", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>ps","<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>pB","<cmd>Telescope buffers<cr>", opts)
-keymap("n", "<leader>pb","<cmd>Telescope dap list_breakpoints<cr>", opts)
+keymap("n", "<leader>pb","<cmd>Telescope buffers<cr>", opts)
+keymap("n", "<leader>pB","<cmd>Telescope dap list_breakpoints<cr>", opts)
 
 -- -- window management
 keymap("n", "<leader>sv", "<C-w>v",opts) -- split window vertically
