@@ -1,0 +1,65 @@
+first check if the current systm is uefi or bios, and if the partition is gpt or mbr
+create the usb with the arch iso and rufus following it is bios/uefi and gpt/mbr
+disable secure boot and if is there rapid storage.
+boot the usb and then run the following commands:
+
+-------------------------KICKSTART---------------------------------------------------
+setfont ter-232n                                ##to increase the font size
+cat /sys/firmware/efi/fw_platform_size          ##to verify the boot mode :64 UEFI 64bit :32 UEFI 32bit :if the file doesnt exist BIOS mode
+ping archlinux.org -c 5                         ##to check if the pc has connection
+timedatectl list-timezones                      ##to list the time zones
+timedatectl set-timezone America/Montevideo     ##to set the timezone
+timedatectl status                              ##to check the timsezone
+--------------------------FORMAT-AND-MOUNT-------------------------------------------
+lsblk                                           ##to list the disk and the partitions
+cfdisk /dev/{the_disk_to_be_partitioned}          ##to create the partitions for arch.
+                                                create 3 partitions from free space
+                                                    -one for root (minimum 10gb)
+                                                    -one for home (minimum 10gb)
+                                                    -one for swap (minimum 4gb)
+mkfs.ext4 /dev/{root_partition}                 ## to format the partition
+mkfs.ext4 /dev/{home_partition}                 ## to format the partition
+mkswap /dev/{swap_partition}                    ## to format the partition
+swapon /dev/{swap_partition}                    ## to enable swap partition
+mount /dev/{root_partition} /mnt                ## to mount the root volume to /mnt
+mkdir /mnt/home
+mount /dev/{home_partition} /mnt/home           ## to mount the home volume to /mnt/home
+-------------------------INSTALLATION------------------------------------------------
+cp /ect/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bkp        ##make a backupfile for the mirrorlist
+pacman -Sy                                      ## update pacman database
+pacman -S pacman-contrib                        ## to install rank tool
+rankmirrors -n 10 /etc/pacman.d/mirrorlist.bkp > /etc/pacman.d/mirrorlist       ##update the mirror file with the 10 best mirror
+pacstrap -i /mnt base linux linux-firmware base-devel linux-lts linux-headers intel-ucode sudo git neofetch networkmanager dhcpcd pulseaudio neovim vim                 ##command to install the necesarie packages for arch
+-------------------------CONFIGURATION-----------------------------------------------
+genfstab -U /mnt >> /mnt/etc/fstab              ## to automaticaly mount the partition as we did.
+arch-chroot /mnt                                ## change root into the new system
+passwd                                          ## to update the root password
+useradd -m username
+passwd username
+usermod -aG wheel,storage,power username        ## to add the username to the groups
+EDITOR=nvim visudo                              ## uncomment ## %wheel ALL=(ALL) ALL
+nvim /etc/locale.gen                            ## uncomment #en_US.UTF8-8 UTF-8
+locale-gen
+echo LANG=en_US.UTF-8 > /etc/locale.conf
+export LANG=en_US.UTF-8
+echo nameOfThePc > /etc/hostname
+nvim /etc/hosts                                 ##add the following lines 
+                                                    127.0.0.1       localhost
+                                                    ::1             localhost
+                                                    127.0.1.1       nameOfThePc.localdomain     localhost
+ln -sf /usr/share/zoneinfo/America/Montevideo /etc/localtime        ##create a symbolic link to the time
+hwclock --systohc
+mkdir /boot/efi
+mount /dev/{efi_partition} /boot/efi/           ## mount the efi partition to the efi folder that we create
+pacman -S grub efibootmgr dosfstools mtools
+nvim /etc/default/grub                          ##uncomment last line #GRUB_DISABLE_OS_PROBER=fale
+pacman -S os-prober
+pacman -S ntfs-3g
+mount /dev/{windows_efi_partition} /mnt                ## to recognize the windows bootloader instalation, to know the partition search for cmd on windows and run bcdedit look for windows boot loader 
+grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+grub-mkconfig -o /boot/grub/grub.cfg            ##generate the grub file
+systemctl enable dhcpcd.service
+systemctl enable NetworkManager.servide
+exit
+umount -lR /mnt
+reboot

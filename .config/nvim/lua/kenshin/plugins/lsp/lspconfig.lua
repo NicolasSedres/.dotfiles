@@ -1,7 +1,7 @@
 return {
 	"neovim/nvim-lspconfig", -- enable LSP
 	event = { "BufReadPre", "BufNewFile" },
-  ft = {"java"},
+	ft = { "java" },
 	dependencies = {
 		"hrsh7th/cmp-cmdline", -- cmdline completions
 		"hrsh7th/cmp-nvim-lsp",
@@ -60,10 +60,10 @@ return {
 		})
 
 		-- configure tailwindcss server
-		lspconfig["tailwindcss"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
+		-- lspconfig["tailwindcss"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- })
 
 		-- configure svelte server
 		lspconfig["svelte"].setup({
