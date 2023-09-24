@@ -36,7 +36,7 @@ arch-chroot /mnt                                ## change root into the new syst
 passwd                                          ## to update the root password
 useradd -m username
 passwd username
-usermod -aG wheel,storage,power username        ## to add the username to the groups
+usermod -aG wheel username        ## to add the username to the groups
 EDITOR=nvim visudo                              ## uncomment ## %wheel ALL=(ALL) ALL
 nvim /etc/locale.gen                            ## uncomment #en_US.UTF8-8 UTF-8
 locale-gen
@@ -59,14 +59,18 @@ mount /dev/{windows_efi_partition} /mnt                ## to recognize the windo
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg            ##generate the grub file
 systemctl enable dhcpcd.service
-systemctl enable NetworkManager.servide
+systemctl enable NetworkManager.service
 exit
 umount -lR /mnt
 reboot
 
 ---------------------------POST-CONFIGURATION---------------------------------------------
-sudo pacman -S xorg
-sudo pacman -S lightdm lightdm-gtk-greeter qtile xterm firefox
-sudo systemctl enable lightdm
-reboot
-sudo pacman -S alacritty
+pacman -S kitty
+Install yay https://github.com/Jguer/yay
+sudo pacman -S sddm 
+sudo systemctl enable sddm                  ##enable graphic login
+install https://wiki.hyprland.org/Getting-Started/Installation/
+    yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio
+    git clone --recursive https://github.com/hyprwm/Hyprland
+    cd Hyprland
+    sudo make install
