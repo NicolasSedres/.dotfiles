@@ -63,3 +63,10 @@ systemctl enable NetworkManager.servide
 exit
 umount -lR /mnt
 reboot
+
+---------------------------POST-CONFIGURATION---------------------------------------------
+sudo pacman -S xorg
+sudo pacman -S lightdm lightdm-gtk-greeter qtile xterm firefox
+sudo systemctl enable lightdm
+reboot
+sudo pacman -S alacritty
