@@ -83,3 +83,6 @@ pacman -S pipewire wireplumber ##to sharescreen
 pacman -S xdg-desktop-portal-hyprland   ##also to screensharing and app comunication
 pacman -S polkit-kde-agent  ##to popup windows asking for privilegis
 pacman -S qt5-wayland qt6-wayland
+pacman -S dolphin   ##file explorer
+pacman -S hyprpicker ##color picker
+yay -S ttf-firacode-nerd
