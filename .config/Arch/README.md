@@ -65,7 +65,6 @@ umount -lR /mnt
 reboot
 
 ---------------------------POST-CONFIGURATION---------------------------------------------
-pacman -S kitty
 Install yay https://github.com/Jguer/yay
 sudo pacman -S sddm 
 sudo systemctl enable sddm                  ##enable graphic login
@@ -74,3 +73,13 @@ install https://wiki.hyprland.org/Getting-Started/Installation/
     git clone --recursive https://github.com/hyprwm/Hyprland
     cd Hyprland
     sudo make install
+pacman -S kitty     ##Terminal
+pacman -S waybar    ##task bar
+pacman -S hyprpaper ##wallpapers
+pacman -S cliphist  ##clipmanager
+pacman -S wofi      ##app launcher
+pacman -S mako      ##notifications
+pacman -S pipewire wireplumber ##to sharescreen
+pacman -S xdg-desktop-portal-hyprland   ##also to screensharing and app comunication
+pacman -S polkit-kde-agent  ##to popup windows asking for privilegis
+pacman -S qt5-wayland qt6-wayland
