@@ -86,3 +86,4 @@ pacman -S qt5-wayland qt6-wayland
 pacman -S dolphin   ##file explorer
 pacman -S hyprpicker ##color picker
 yay -S ttf-firacode-nerd
+pacman -S qt5ct     ##aldo add this line to /etc/environment  QT_QPA_PLATFORMTHEME=qt5ct
