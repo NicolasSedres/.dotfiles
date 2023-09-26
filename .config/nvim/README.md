@@ -18,7 +18,7 @@ download zprint from https://github.com/kkinnear/zprint/blob/main/doc/getting/li
 sdk install java 17.0.8-amzn
 download jdtls and put it under nvim config folder, also download lombok.jar and put it under jdtls folder
 https://download.eclipse.org/jdtls/milestones/?d
-download and compile java-debug under nvim config folder.
+download and compile java-debug under nvim config folder. ./mvnw clean install
 https://github.com/microsoft/java-debug
 Download and copy to jdtls folder the google format file https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml
 -----------------------DOCKER---------------------------------------

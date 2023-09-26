@@ -66,6 +66,7 @@ reboot
 
 ---------------------------POST-CONFIGURATION---------------------------------------------
 Install yay https://github.com/Jguer/yay
+    makepkg -si
 sudo pacman -S sddm 
 sudo systemctl enable sddm                  ##enable graphic login
 install https://wiki.hyprland.org/Getting-Started/Installation/
