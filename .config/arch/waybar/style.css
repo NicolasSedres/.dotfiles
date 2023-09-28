@@ -1,73 +1,127 @@
+/*
+     ___                    _     __    _     
+    /   |  _  _____  ____  (_)___/ /__ ( )_____
+   / /| | | |/_/ _ \/ __ \/ / __  / _ \|// ___/
+  / ___ |_>  </  __/ / / / / /_/ /  __/ (__  )
+ /_/  |_/_/|_|\___/_/ /_/_/\__,_/\___/ /____/ 
+ | |     / /___ ___  __/ /_  ____ ______      
+ | | /| / / __ `/ / / / __ \/ __ `/ ___/      
+ | |/ |/ / /_/ / /_/ / /_/ / /_/ / /          
+ |__/|__/\__,_/\__, /_.___/\__,_/_/           
+              /____/                          
+
+ https://github.com/Axenide/Dotfiles
+*/
+
+@import "axgruv.css";
+
 * {
-    border: none;
-    border-radius: 0;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
-    min-height: 0;
+	border: none;
+	border-radius: 0px;
+	font-family: 'Iosevka';
+	font-size: 11pt;
+	font-style: normal;
+	min-height: 0;
 }
 
 window#waybar {
-    background: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: white;
+	font-family: 'Symbols Nerd Font';
+	background: black;
+	border: 2px solid @brblack;
+	border-radius: 10px;
+	color: @white;
 }
 
-tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
-}
-tooltip label {
-  color: white;
+#workspaces {
+	border: solid 0px @red;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    background: transparent;
-    color: white;
-    border-bottom: 3px solid transparent;
+	border-radius: 0px;
+	color: @white;
+	border: solid 0px @red;
+	transition: all 0.1s ease-in-out;
 }
 
-#workspaces button.active{
-    background: #64727D;
-    border-bottom: 3px solid white;
+#workspaces button.persistent {
+	color: @brblack;
+	border: solid 0px @red;
 }
 
-#mode, #clock, #battery {
-    padding: 0 10px;
+#workspaces button.active {
+	color: @white;
+	border-bottom: solid 3px @red;
 }
 
-#mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
+#workspaces button:hover {
+	background-color: transparent;
+	color: @brgreen;
+}
+
+#tray {
+	padding: 0px 10px;
+	margin-right: 5px;
+	border-right: solid 1px @black;
 }
 
 #clock {
-    background-color: #64727D;
+	color: @brgreen;
+	padding-left: 10px;
+	padding-right: 12px;
+	margin-left: 5px;
+	font-weight: bold;
+	border-left: solid 1px @black;
 }
 
-#battery {
-    background-color: #ffffff;
-    color: black;
+#custom-launcher {
+	color: @red;
+	background-color: transparent;
+	font-family: 'Symbols Nerd Font';
+	font-size: 20px;
+	border-right: solid 1px @black;
+	padding: 10px 12px 10px 8px;
+	margin: 0 0 0 5px;
+}
+
+#custom-playerctl {
+	font-weight: bold;
+}
+
+#cpu, #memory, #disk, #custom-gpu-usage {
+	background-color: #000000;
+	border-radius: 16px;
+	margin: 5px;
+	padding: 0px 10px 0px 10px;
+	font-weight: bold;
+	border: solid 2px @black;
+	box-shadow: 0px 0px 3px rgba(0,0,0,1);
+	text-shadow: 0px 0px 3px @white;
+}
+
+#custom-hyprpicker, #bluetooth, #network, #pulseaudio, #backlight, #battery, #custom-notifications {
+	color: @white;
+	font-family: 'Symbols Nerd Font';
+	font-size: 10pt;
+	margin: 0;
+	padding: 0 8px 0 8px;
+}
+
+#bluetooth.connected {
+	color: @brgreen;
+}
+
+#bluetooth.off {
+	color: @brblack;
+}
+
+#pulseaudio.muted {
+	color: @brblack;
 }
 
 #battery.charging {
-    color: white;
-    background-color: #26A65B;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
+	color: @brgreen;
 }
 
 #battery.warning:not(.charging) {
-    background: #f53c3c;
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+	color: @red;
 }

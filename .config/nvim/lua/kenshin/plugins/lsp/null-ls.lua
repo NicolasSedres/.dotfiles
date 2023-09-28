@@ -17,6 +17,7 @@ return {
         formatting.stylua,
         formatting.xmllint,
         formatting.zprint,
+        formatting.fixjson,
         diagnostics.flake8,
       },
     })

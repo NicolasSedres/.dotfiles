@@ -55,7 +55,6 @@ pacman -S grub efibootmgr dosfstools mtools
 nvim /etc/default/grub                          ##uncomment last line #GRUB_DISABLE_OS_PROBER=fale
 pacman -S os-prober
 pacman -S ntfs-3g
-mount /dev/{windows_efi_partition} /mnt                ## to recognize the windows bootloader instalation, to know the partition search for cmd on windows and run bcdedit look for windows boot loader 
 grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
 grub-mkconfig -o /boot/grub/grub.cfg            ##generate the grub file
 systemctl enable dhcpcd.service
@@ -63,6 +62,8 @@ systemctl enable NetworkManager.service
 exit
 umount -lR /mnt
 reboot
+mount /dev/{windows_efi_partition} /mnt                ## to recognize the windows bootloader instalation, to know the partition search for cmd on windows and run bcdedit look for windows boot loader 
+grub-mkconfig -o /boot/grub/grub.cfg            ##generate the grub file
 
 ---------------------------POST-CONFIGURATION---------------------------------------------
 Install yay https://github.com/Jguer/yay
@@ -86,5 +87,9 @@ pacman -S polkit-kde-agent  ##to popup windows asking for privilegis
 pacman -S qt5-wayland qt6-wayland
 pacman -S dolphin   ##file explorer
 pacman -S hyprpicker ##color picker
-yay -S ttf-firacode-nerd
+pacman -S ttf-jetbrains-mono-nerd
+pacman -S ttf-nerd-fonts-symbols
+pacman -S noto-fonts-cjk
 pacman -S qt5ct     ##aldo add this line to /etc/environment  QT_QPA_PLATFORMTHEME=qt5ct
+pacman -S pavucontrol   ##to manage audio
+yay -S wlogout          ##to logout restart..
