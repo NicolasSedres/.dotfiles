@@ -78,6 +78,7 @@ install https://wiki.hyprland.org/Getting-Started/Installation/
 pacman -S kitty     ##Terminal
 pacman -S waybar    ##task bar
 pacman -S hyprpaper ##wallpapers
+pacman -S wl-clipboard      ##clipboard
 pacman -S cliphist  ##clipmanager
 pacman -S wofi      ##app launcher
 pacman -S mako      ##notifications
@@ -92,4 +93,7 @@ pacman -S ttf-nerd-fonts-symbols
 pacman -S noto-fonts-cjk
 pacman -S qt5ct     ##aldo add this line to /etc/environment  QT_QPA_PLATFORMTHEME=qt5ct
 pacman -S pavucontrol   ##to manage audio
+pacman -S pamixer       ##also to manage audio
 yay -S wlogout          ##to logout restart..
+pacman -S bluez bluez-utils ##bluetooth manager
+yay -S swaync   ##notification daemon
