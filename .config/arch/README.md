@@ -91,6 +91,7 @@ pacman -S hyprpicker ##color picker
 pacman -S ttf-jetbrains-mono-nerd
 pacman -S ttf-nerd-fonts-symbols
 pacman -S noto-fonts-cjk
+pacman -S noto-fonts-emoji
 pacman -S qt5ct     ##aldo add this line to /etc/environment  QT_QPA_PLATFORMTHEME=qt5ct
 pacman -S pavucontrol   ##to manage audio
 pacman -S pamixer       ##also to manage audio
