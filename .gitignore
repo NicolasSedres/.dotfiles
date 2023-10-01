@@ -2,5 +2,7 @@ plugin/
 .netrwhist
 .config/nvim/jdtls/
 .config/nvim/java-debug/
+.config/nvim2/jdtls/
+.config/nvim2/java-debug/
 vscode-java-test
 lazy-lock.json
