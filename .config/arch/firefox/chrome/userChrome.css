@@ -1,0 +1,213 @@
+:root {
+  --delay:0.0s;
+  --transition-time:0.5s;
+  --positionX1:48px;
+  --positionX2:absolute;
+  --fullscreen-sidebar-width:0px
+}
+
+#nav-bar:not([customizing]) {
+  visibility: visible;
+  margin-top: -40px;
+  transition-delay: var(--transition-time);
+  filter: alpha(opacity=0);
+  opacity: 0;
+  transition: visibility, ease var(--transition-time), margin-top, ease var(--transition-time), opacity, ease var(--transition-time),
+  rotate, ease var(--transition-time) !important;
+}
+
+#tabs-newtab-button {
+  padding: 0rem 0rem 0rem 0rem !important;
+  visibility: visible;
+}
+
+#nav-bar:hover,
+#nav-bar:focus-within,
+#urlbar[focused='true'],
+#identity-box[open='true'],
+#titlebar:hover + #nav-bar:not([customizing]),
+#toolbar-menubar:not([inactive='true']) ~ #nav-bar:not([customizing]) {
+  visibility: visible;
+
+  margin-top: 0px;
+  filter: alpha(opacity=100);
+  opacity: 1;
+}
+#PersonalToolbar {
+  margin-top: 0px;
+}
+#nav-bar .toolbarbutton-1[open='true'] {
+  visibility: visible;
+  opacity: 100;
+}
+
+:-moz-any(#content, #appcontent) browser {
+  overflow-y: scroll;
+  margin-bottom: 0px !important;
+  overflow-x: scroll;
+}
+
+@media (-moz-gtk-csd-available) {
+  .browser-toolbar:not(.titlebar-color) {
+    background-color:transparent!important;
+    box-shadow:none!important
+  }
+  #TabsToolbar:not([customizing=true]) {
+  visibility:visible!important;
+  }
+  #toolbar-menubar {
+    padding-top:0!important
+  }
+  :root:not([customizing=true]) #toolbar-menubar[inactive]+#TabsToolbar .titlebar-buttonbox-container {
+    visibility:visible!important;
+    position:absolute;
+    top:var(--uc-win-ctrl-vertical-offset);
+    display:block;
+    z-index:101
+  }
+  :root[tabsintitlebar][sizemode=normal]:not([gtktiledwindow=true]):not([customizing=true]) #nav-bar {
+    border-top-left-radius:env(-moz-gtk-csd-titlebar-radius);
+    border-top-right-radius:env(-moz-gtk-csd-titlebar-radius)
+  }
+  :root[tabsintitlebar]:not([customizing=true]) {
+    --uc-win-ctrl-btn-width:38px;
+    --uc-win-ctrl-padding:12px;
+    --uc-win-ctrl-vertical-offset:8px;
+    --uc-win-ctrl-drag-space:20px
+  }
+  :root[tabsintitlebar][lwtheme]:not([customizing=true]) {
+    --uc-win-ctrl-btn-width:30px;
+    --uc-win-ctrl-padding:12px;
+    --uc-win-ctrl-vertical-offset:5px;
+    --uc-win-ctrl-drag-space:20px
+  }
+  @media (-moz-gtk-csd-minimize-button),(-moz-gtk-csd-maximize-button),(-moz-gtk-csd-close-button) {
+    #nav-bar {
+      --uc-navbar-padding:calc(var(--uc-win-ctrl-btn-width) * 1)
+    }
+  }
+  @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button),(-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-close-button),(-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+    #nav-bar {
+      --uc-navbar-padding:calc(var(--uc-win-ctrl-btn-width) * 2)
+    }
+  }
+  @media (-moz-gtk-csd-minimize-button) and (-moz-gtk-csd-maximize-button) and (-moz-gtk-csd-close-button) {
+    #nav-bar {
+      --uc-navbar-padding:calc(var(--uc-win-ctrl-btn-width) * 3)
+    }
+  }
+  @media (-moz-gtk-csd-minimize-button),(-moz-gtk-csd-maximize-button),(-moz-gtk-csd-close-button) {
+    @media not (-moz-gtk-csd-reversed-placement) {
+      #nav-bar {
+        padding-inline:0 calc(var(--uc-navbar-padding,0) + var(--uc-win-ctrl-padding) + var(--uc-win-ctrl-drag-space))!important
+      }
+      .titlebar-buttonbox-container {
+        right:0
+      }
+    }
+    @media (-moz-gtk-csd-reversed-placement) {
+      #nav-bar {
+        padding-inline:calc(var(--uc-navbar-padding,0) + var(--uc-win-ctrl-padding) + var(--uc-win-ctrl-drag-space)) 0!important
+      }
+      .titlebar-buttonbox-container {
+        left:0
+      }
+    }
+  }
+  #navigator-toolbox[style*="margin-top: -"] .titlebar-buttonbox-container,
+  [inDOMFullscreen=true] .titlebar-buttonbox-container {
+    transform:translateY(-100px)
+  }
+}
+#browser {
+  position:relative
+}
+#nav-bar,
+#urlbar {
+  z-index:100
+}
+#sidebar-box:not([lwt-sidebar]) {
+  appearance:unset!important
+}
+#sidebar-box[sidebarcommand*=tabcenter] {
+  z-index:1
+}
+#sidebar-box[sidebarcommand*=tabcenter] #sidebar-header {
+  visibility:collapse;
+  display:none
+}
+#sidebar-box[sidebarcommand*=tabcenter],
+[sidebarcommand*=tabcenter] #sidebar {
+  min-width:48px!important;
+  max-width:48px!important;
+  width:48px
+}
+#sidebar-box[sidebarcommand*=tabcenter]:not([hidden]) {
+  display:block;
+  position:var(--positionX2);
+  min-width:48px;
+  max-width:48px;
+  overflow:hidden;
+  border-right:1px solid var(--sidebar-border-color);
+  z-index:1;
+  top:0;
+  bottom:0
+}
+:where(#main-window[inFullscreen]) #sidebar-box[sidebarcommand*=tabcenter]:not([hidden]) {
+  min-width:var(--fullscreen-sidebar-width)!important;
+  max-width:var(--fullscreen-sidebar-width)!important
+}
+#sidebar-box[sidebarcommand*=tabcenter]:hover,
+#sidebar-box[sidebarcommand*=tabcenter]:hover #sidebar {
+  min-width:10vw!important;
+  width:30vw!important;
+  max-width:200px!important;
+  z-index:1!important;
+  transition:all var(--transition-time) ease var(--delay)
+}
+#sidebar-box[sidebarcommand*=tabcenter]:not(:hover),
+#sidebar-box[sidebarcommand*=tabcenter]:not(:hover) #sidebar {
+  transition:all var(--transition-time) ease 0s
+}
+@media (width >= 1200px) {
+  #sidebar-box[sidebarcommand*=tabcenter]:hover,
+  #sidebar-box[sidebarcommand*=tabcenter]:hover #sidebar {
+    max-width:250px!important
+  }
+}
+[sidebarcommand*=tabcenter]~#sidebar-splitter {
+  display:none
+}
+[sidebarcommand*=tabcenter] #sidebar {
+  max-height:100%;
+  height:100%
+}
+#main-window:not([inFullscreen]) #sidebar-box[sidebarcommand*=tabcenter]:not([hidden])~#appcontent {
+  margin-left:var(--positionX1)
+}
+#main-window[inFullscreen]:not([inDOMFullscreen]) #sidebar-box[sidebarcommand*=tabcenter]:not([hidden])~#appcontent {
+  margin-left:var(--fullscreen-sidebar-width)
+}
+#main-window[inFullscreen] #sidebar {
+  height:100vh
+}
+[sidebarcommand*=tabcenter] #sidebar-header {
+  background:#0c0c0d;
+  border-bottom:none!important
+}
+[sidebarcommand*=tabcenter]~#sidebar-splitter {
+  border-right-color:#0c0c0d!important;
+  border-left-color:#0c0c0d!important
+}
+[sidebarcommand*=tabcenter] #sidebar-close,
+[sidebarcommand*=tabcenter] #sidebar-switcher-target {
+  filter:invert(100%)
+}
+@media (max-width:630px) {
+  #urlbar-container {
+    min-width:100%!important
+  }
+  #menubar-items {
+    display:none!important
+  }
+}

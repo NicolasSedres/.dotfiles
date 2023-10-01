@@ -80,7 +80,7 @@ pacman -S waybar    ##task bar
 pacman -S hyprpaper ##wallpapers
 pacman -S wl-clipboard      ##clipboard
 pacman -S cliphist  ##clipmanager
-pacman -S wofi      ##app launcher
+yay -S rofi-lbonn-wayland-git   ##app launcher
 pacman -S mako      ##notifications
 pacman -S pipewire wireplumber ##to sharescreen
 pacman -S xdg-desktop-portal-hyprland   ##also to screensharing and app comunication
@@ -97,3 +97,11 @@ pacman -S pamixer       ##also to manage audio
 yay -S wlogout          ##to logout restart..
 pacman -S bluez bluez-utils ##bluetooth manager
 yay -S swaync   ##notification daemon
+------------------------FIREFOX----------------------------------------------------
+Type about:profiles into your urlbar and go to the page
+Open the root directory folder specified on the page
+Inside this folder,Create a simbolic link from firefox/chrome 
+Type about:config into your urlbar and go to the page
+Paste toolkit.legacyUserProfileCustomizations.stylesheets into the bar and set its value to true
+Go back to about:profiles and click the restart normally buton
+Enjoy :D
