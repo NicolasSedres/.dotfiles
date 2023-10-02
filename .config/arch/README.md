@@ -98,6 +98,10 @@ pacman -S pamixer       ##also to manage audio
 yay -S wlogout          ##to logout restart..
 pacman -S bluez bluez-utils ##bluetooth manager
 yay -S swaync   ##notification daemon
+yay -S swaylock-effects-git  ##to lock the computer
+yay -S chili-sddm-theme     ##theme for sddm login
+                            modify the file /usr/lib/sddm/sddm.conf.d/sddm.config
+                            and set the line of Current=chili
 ------------------------FIREFOX----------------------------------------------------
 Type about:profiles into your urlbar and go to the page
 Open the root directory folder specified on the page
