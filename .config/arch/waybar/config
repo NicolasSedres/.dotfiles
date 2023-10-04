@@ -2,7 +2,7 @@
     "position": "top",
     "layer": "top",
     "height": 41,
-    "margin-top": 10,
+    "margin-top": 3,
     "margin-bottom": 0,
     "margin-left": 10,
     "margin-right": 10,
@@ -213,6 +213,7 @@
 		"on-click-right": "pavucontrol",
     "tooltip-format": "{volume}%"
   },
+
   "custom/randwall": {
     "format": "󰏘",
     "on-click": "nemo ~/Wallpapers/Selected",
@@ -220,13 +221,8 @@
   },
 
   "custom/launcher": {
-    "format": "󰝴",
-//    "on-click": "$(tofi-drun --prompt-text 'Run: ')",
+    "format": "侍",
     "on-click": "bash $HOME/.config/rofi/launchers/type-1/launcher.sh",
-//    "on-click": "wofi --show drun -I -a -n -W 500 -H 376 -s ~/.config/wofi/themes/gruvbox.css",
-//    "on-click-right": "$(tofi-run --prompt-text 'Execute: ')"  
-//    "on-click-right": "bash $HOME/.config/rofi/run.sh"  
-//    "on-click-right": "wofi --show run -I -a -n -W 500 -H 376 -s ~/.config/wofi/themes/gruvbox.css"  
   },
 
   }
