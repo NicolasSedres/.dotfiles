@@ -6,5 +6,10 @@
   "permissions": ["tabs", "activeTab"],
   "background": {
     "scripts": ["newtab.js"]
+  },
+  "browser_specific_settings": {
+  "gecko": {
+    "id": "Battousai@Himura.com"
   }
+}
 }
