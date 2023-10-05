@@ -66,6 +66,7 @@ mount /dev/{windows_efi_partition} /mnt                ## to recognize the windo
 grub-mkconfig -o /boot/grub/grub.cfg            ##generate the grub file
 
 ---------------------------POST-CONFIGURATION---------------------------------------------
+sudo timedatectl set-ntp true       ##to synchronize the time
 Install yay https://github.com/Jguer/yay
     makepkg -si
 sudo pacman -S sddm 
