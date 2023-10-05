@@ -4,3 +4,4 @@ plugin/
 .config/nvim/java-debug/
 vscode-java-test
 lazy-lock.json
+.config/arch/firefox/samuhomeplugin/web-ext-artifacts

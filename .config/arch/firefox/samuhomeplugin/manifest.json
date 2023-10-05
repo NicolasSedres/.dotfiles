@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "SamuHome Extension",
+  "version": "1.0",
+  "description": "Redirect to Samu custom Page",
+  "permissions": ["tabs", "activeTab"],
+  "background": {
+    "scripts": ["newtab.js"]
+  }
+}
