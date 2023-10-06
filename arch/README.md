@@ -138,5 +138,10 @@ Go back to about:profiles and click the restart normally buton
 -sudo grub-mkconfig -o /boot/grub/grub.cfg
 -in /etc/mkinitcpio.conf add nvidia nvidia_modeset nvidia_uvm nvidia_drm to your MODULES
 -sudo mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img
--add a new line to /etc/modprobe.d/nvidia.conf (make it if it does not exist) and add the line options nvidia-drm modeset=1
+-add a new line to /etc/modprobe.d/nvidia.conf (make it if it does not exist) and add the lines above
+                                                                                options nvidia-drm modeset=1
+                                                                                options nvidia "NVreg_UsePageAttributeTable=1"
+                                                                                options nvidia "NVreg_PreserveVideoMemoryAllocations=1"
+                                                                                options nvidia "NVreg_TemporaryFilePath=/var/tmp"
+                                                                                options nvidia "NVreg_EnableS0ixPowerManagement=1"
 
