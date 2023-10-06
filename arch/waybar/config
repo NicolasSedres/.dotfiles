@@ -140,7 +140,8 @@
     "modules": [
         "disk",
         "cpu",
-        "memory"
+        "memory",
+        "custom/gpu-usage"
     ]
   },
 

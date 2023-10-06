@@ -128,3 +128,15 @@ Inside this folder,Create a simbolic link from firefox/chrome
 Type about:config into your urlbar and go to the page
 Paste toolkit.legacyUserProfileCustomizations.stylesheets into the bar and set its value to true
 Go back to about:profiles and click the restart normally buton
+##-------------------------NVIDIA-SUPPORT----------------------------------------------
+-determine and install nvidia driver: *run neofetch and check the kernel(linux,lts,other) *check driver need according to archwebsite
+-pacman -S nvidia-utils nvidia-settings
+-Remove kms from the HOOKS array in /etc/mkinitcpio.conf
+-sudo mkinitcpio -P
+---------------------------NVIDIA-HYPRLAND---------------------------------------------
+-for people using grub you can do this by adding nvidia_drm.modeset=1 to the end of GRUB_CMDLINE_LINUX_DEFAULT= in /etc/default/grub
+-sudo grub-mkconfig -o /boot/grub/grub.cfg
+-in /etc/mkinitcpio.conf add nvidia nvidia_modeset nvidia_uvm nvidia_drm to your MODULES
+-sudo mkinitcpio --config /etc/mkinitcpio.conf --generate /boot/initramfs-custom.img
+-add a new line to /etc/modprobe.d/nvidia.conf (make it if it does not exist) and add the line options nvidia-drm modeset=1
+
