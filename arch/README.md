@@ -7,14 +7,14 @@ create the usb with the arch iso and rufus following it is bios/uefi and gpt/mbr
 disable secure boot and if is there rapid storage.
 boot the usb and then run the following commands:
 
-#-------------------------KICKSTART--------------------------------------------------
+##-------------------------KICKSTART--------------------------------------------------
 setfont ter-232n                                ##to increase the font size
 cat /sys/firmware/efi/fw_platform_size          ##to verify the boot mode :64 UEFI 64bit :32 UEFI 32bit :if the file doesnt exist BIOS mode
 ping archlinux.org -c 5                         ##to check if the pc has connection
 timedatectl list-timezones                      ##to list the time zones
 timedatectl set-timezone America/Montevideo     ##to set the timezone
 timedatectl status                              ##to check the timsezone
-#--------------------------FORMAT-AND-MOUNT-------------------------------------------
+##--------------------------FORMAT-AND-MOUNT-------------------------------------------
 lsblk                                           ##to list the disk and the partitions
 cfdisk /dev/{the_disk_to_be_partitioned}          ##to create the partitions for arch.
                                                 create 3 partitions from free space
@@ -28,13 +28,13 @@ swapon /dev/{swap_partition}                    ## to enable swap partition
 mount /dev/{root_partition} /mnt                ## to mount the root volume to /mnt
 mkdir /mnt/home
 mount /dev/{home_partition} /mnt/home           ## to mount the home volume to /mnt/home
-#-------------------------INSTALLATION------------------------------------------------
+##-------------------------INSTALLATION------------------------------------------------
 cp /ect/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bkp        ##make a backupfile for the mirrorlist
 pacman -Sy                                      ## update pacman database
 pacman -S pacman-contrib                        ## to install rank tool
 rankmirrors -n 10 /etc/pacman.d/mirrorlist.bkp > /etc/pacman.d/mirrorlist       ##update the mirror file with the 10 best mirror
 pacstrap -i /mnt base linux linux-firmware base-devel linux-lts linux-headers intel-ucode sudo git neofetch networkmanager dhcpcd pulseaudio neovim vim                 ##command to install the necesarie packages for arch
-#-------------------------CONFIGURATION-----------------------------------------------
+##-------------------------CONFIGURATION-----------------------------------------------
 genfstab -U /mnt >> /mnt/etc/fstab              ## to automaticaly mount the partition as we did.
 arch-chroot /mnt                                ## change root into the new system
 passwd                                          ## to update the root password
@@ -69,7 +69,7 @@ reboot
 mount /dev/{windows_efi_partition} /mnt                ## to recognize the windows bootloader instalation, to know the partition search for cmd on windows and run bcdedit look for windows boot loader 
 grub-mkconfig -o /boot/grub/grub.cfg            ##generate the grub file
 
-#---------------------------POST-CONFIGURATION---------------------------------------------
+##---------------------------POST-CONFIGURATION---------------------------------------------
 sudo timedatectl set-ntp true       ##to synchronize the time
 Install yay https://github.com/Jguer/yay
     makepkg -si
@@ -107,7 +107,7 @@ yay -S swaylock-effects-git  ##to lock the computer
 yay -S chili-sddm-theme     ##theme for sddm login
                             modify the file /usr/lib/sddm/sddm.conf.d/sddm.config
                             and set the line of Current=chili
-#------------------------SYMBOLIC-LINKS---------------------------------------------
+##------------------------SYMBOLIC-LINKS---------------------------------------------
 ln -s ~/.dotfiles/arch/fontconfig ~/.config/fontconfig
 ln -s ~/.dotfiles/arch/firefox ~/.config/firefox
 ln -s ~/.dotfiles/arch/gtk-3.0 ~/.config/gtk-3.0
@@ -121,7 +121,7 @@ ln -s ~/.dotfiles/arch/swaync ~/.config/swaync
 ln -s ~/.dotfiles/arch/waybar ~/.config/waybar
 ln -s ~/.dotfiles/arch/.gtkrc-2.0 ~/.gtkrc-2.0
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-#------------------------FIREFOX----------------------------------------------------
+##------------------------FIREFOX----------------------------------------------------
 Type about:profiles into your urlbar and go to the page
 Open the root directory folder specified on the page
 Inside this folder,Create a simbolic link from firefox/chrome 
