@@ -2,5 +2,5 @@
 	path = samu-startpage
 	url = https://github.com/NicolasSedres/samu-startpage.git
 [submodule ".config/nvim"]
-	path = .config/nvim
+	path = nvim
 	url = https://github.com/NicolasSedres/nvim.git

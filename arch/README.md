@@ -103,6 +103,20 @@ yay -S swaylock-effects-git  ##to lock the computer
 yay -S chili-sddm-theme     ##theme for sddm login
                             modify the file /usr/lib/sddm/sddm.conf.d/sddm.config
                             and set the line of Current=chili
+------------------------SYMBOLIC-LINKS---------------------------------------------
+ln -s ~/.dotfiles/arch/fontconfig ~/.config/fontconfig
+ln -s ~/.dotfiles/arch/firefox ~/.config/firefox
+ln -s ~/.dotfiles/arch/gtk-3.0 ~/.config/gtk-3.0
+ln -s ~/.dotfiles/arch/hypr ~/.config/hypr
+ln -s ~/.dotfiles/arch/kitty ~/.config/kitty
+ln -s ~/.dotfiles/arch/neofetch ~/.config/neofetch
+ln -s ~/.dotfiles/nvim ~/.config/nvim
+ln -s ~/.dotfiles/arch/rofi ~/.config/rofi
+ln -s ~/.dotfiles/arch/swaylock ~/.config/swaylock
+ln -s ~/.dotfiles/arch/swaync ~/.config/swaync
+ln -s ~/.dotfiles/arch/waybar ~/.config/waybar
+ln -s ~/.dotfiles/arch/.gtkrc-2.0 ~/.gtkrc-2.0
+ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ------------------------FIREFOX----------------------------------------------------
 Type about:profiles into your urlbar and go to the page
 Open the root directory folder specified on the page
