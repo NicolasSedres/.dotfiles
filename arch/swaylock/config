@@ -5,7 +5,7 @@ fade-in=0.25
 indicator
 clock
 datestr=%d/%m/%Y
-image=/home/kenshin/.dotfiles/.config/arch/hypr/resources/w2.png
+image=/home/kenshin/.dotfiles/arch/hypr/resources/w2.png
 show-keyboard-layout
 indicator-caps-lock
 bs-hl-color=DB4740CC
