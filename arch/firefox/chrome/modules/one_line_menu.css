@@ -21,6 +21,14 @@ scrollbox, .scrollbox-clip {
   height: 40px;
 }
 
+.titlebar-close {
+  visibility: hidden;
+}
+
+#TabsToolbar .toolbarbutton-1 {
+  visibility: hidden;
+}
+
 #TabsToolbar .tabbrowser-tab,
 #TabsToolbar .tabbrowser-tab .tab-stack,
 #TabsToolbar .tabbrowser-tab .tab-background,
@@ -220,15 +228,6 @@ tab:not([selected]):hover .tab-background {
   box-shadow: 10px 45px 146px -64px rgba(0, 0, 0, 0.65);
   margin-inline: 0 !important;
   width: 100% !important;
-}
-
-#TabsToolbar .toolbarbutton-1 > .toolbarbutton-icon,
-#TabsToolbar .toolbarbutton-1 > .toolbarbutton-text,
-#TabsToolbar .toolbarbutton-1 > .toolbarbutton-badge-stack {
-  border-radius: 50rem !important;
-  height: 2rem !important;
-  width: 2rem !important;
-  padding: 4px !important;
 }
 
 #pocket-button {
