@@ -8,13 +8,7 @@
     "margin-right": 10,
     "modules-left": ["custom/launcher", "hyprland/workspaces"],
     "modules-center": ["custom/playerctl"],
-    "modules-right": ["tray", "bluetooth", "group/hardware", "backlight", "battery", "temperature", "network", "pulseaudio", "clock", "custom/notifications"],
-
-   "temperature": {
-      "critical-threshold": 30,
-      "format-critical": "{temperatureC}°C ",
-      "format": "{temperatureC}°C "
-   },
+    "modules-right": ["tray", "bluetooth", "group/hardware", "backlight", "battery", "network", "pulseaudio", "clock", "custom/notifications"],
 
   "custom/launcher": {
     "format": "侍",
