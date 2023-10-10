@@ -28,6 +28,14 @@ scrollbox, .scrollbox-clip {
 #TabsToolbar .toolbarbutton-1 {
   visibility: hidden;
 }
+.tab-close-button {
+  visibility: hidden;
+}
+
+.tab-background[selected="true"] {
+  background-color: #600203 !important;
+  background-image: none !important;
+}
 
 #TabsToolbar .tabbrowser-tab,
 #TabsToolbar .tabbrowser-tab .tab-stack,
