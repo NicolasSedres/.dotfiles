@@ -8,11 +8,31 @@
     "margin-right": 10,
     "modules-left": ["custom/launcher", "hyprland/workspaces"],
     "modules-center": ["custom/playerctl"],
-    "modules-right": ["tray", "bluetooth", "group/hardware", "backlight", "battery", "network", "pulseaudio", "clock", "custom/notifications"],
+    "modules-right": ["tray", "group/hardware", "backlight", "battery", "network", "custom/cliphist", "pulseaudio", "clock", "custom/updates", "custom/notifications"],
 
   "custom/launcher": {
     "format": "侍",
     "on-click": "bash $HOME/.config/rofi/launchers/type-1/launcher.sh",
+  },
+
+  "custom/cliphist": {
+    "format": "",
+    "on-click": "sleep 0.1 && ~/.dotfiles/arch/scripts/cliphist.sh",
+    "on-click-right": "sleep 0.1 && ~/.dotfiles/arch/scripts/cliphist.sh d",
+    "on-click-middle": "sleep 0.1 && ~/.dotfiles/arch/scripts/cliphist.sh w",
+    "tooltip": false
+   },
+
+   // Updates Count
+  "custom/updates": {
+    "format": " {}",
+    "tooltip-format": "{}",
+    "escape": true,
+    "return-type": "json",       
+    "exec": "~/.dotfiles/arch/scripts/updates.sh",
+    "restart-interval": 60,
+   // "on-click": "kitty -e ~/dotfiles/scripts/installupdates.sh",
+    "tooltip": false
   },
 
   "hyprland/workspaces": {

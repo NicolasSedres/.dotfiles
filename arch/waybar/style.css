@@ -86,7 +86,7 @@ window#waybar {
 	box-shadow: 0px 0px 3px rgba(0,0,0,1);
 }
 
-#custom-hyprpicker, #bluetooth, #network, #pulseaudio, #backlight, #battery, #custom-notifications, #temperature {
+#custom-hyprpicker, #bluetooth, #network, #pulseaudio, #backlight, #battery, #custom-notifications, #temperature, #custom-cliphist, #custom-updates{
 	color: @white;
 	font-family: 'Symbols Nerd Font';
 	font-size: 10pt;

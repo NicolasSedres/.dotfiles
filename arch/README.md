@@ -107,6 +107,7 @@ yay -S swaylock-effects-git  ##to lock the computer
 yay -S chili-sddm-theme     ##theme for sddm login
                             modify the file /usr/lib/sddm/sddm.conf.d/sddm.config
                             and set the line of Current=chili
+sudo pacman -S grim swappy slurp  ##to take screenshots
 ##------------------------SYMBOLIC-LINKS---------------------------------------------
 ln -s ~/.dotfiles/arch/fontconfig ~/.config/fontconfig
 ln -s ~/.dotfiles/arch/firefox ~/.config/firefox
