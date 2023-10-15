@@ -8,7 +8,7 @@
     "margin-right": 10,
     "modules-left": ["custom/launcher", "hyprland/workspaces"],
     "modules-center": ["custom/playerctl"],
-    "modules-right": ["tray", "group/hardware", "backlight", "battery", "pulseaudio", "custom/cliphist", "network", "custom/updates", "clock", "custom/notifications"],
+    "modules-right": ["group/hardware", "backlight", "battery", "tray", "pulseaudio", "custom/cliphist", "network", "custom/updates", "clock", "custom/notifications"],
 
   "custom/launcher": {
     "format": "侍",
