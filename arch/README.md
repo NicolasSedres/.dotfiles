@@ -71,7 +71,7 @@ grub-mkconfig -o /boot/grub/grub.cfg            ##generate the grub file
 
 ##---------------------------POST-CONFIGURATION---------------------------------------------
 sudo timedatectl set-ntp true       ##to synchronize the time
-Install yay https://github.com/Jguer/yay
+git clone https://aur.archlinux.org/yay-bin.git  ## to install yay
     makepkg -si
 sudo pacman -S sddm 
 sudo systemctl enable sddm                  ##enable graphic login
