@@ -75,11 +75,13 @@ git clone https://aur.archlinux.org/yay-bin.git  ## to install yay
     makepkg -si
 sudo pacman -S sddm 
 sudo systemctl enable sddm                  ##enable graphic login
-install https://wiki.hyprland.org/Getting-Started/Installation/
-    yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio
-    git clone --recursive https://github.com/hyprwm/Hyprland
-    cd Hyprland
-    sudo make install
+sudo pacman -S hyprland
+<!-- install https://wiki.hyprland.org/Getting-Started/Installation/ -->
+<!--     yay -S gdb ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite xorg-xinput libxrender pixman wayland-protocols cairo pango seatd libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio -->
+<!--     git clone --recursive https://github.com/hyprwm/Hyprland -->
+<!--     cd Hyprland -->
+<!--     sudo make install -->
+##------------------execute-the-program.sh-script--------------------------------------
 pacman -S kitty     ##Terminal
 pacman -S waybar    ##task bar
 pacman -S hyprpaper ##wallpapers
@@ -92,7 +94,7 @@ pacman -S xdg-desktop-portal-hyprland   ##also to screensharing and app comunica
 pacman -S polkit-kde-agent  ##to popup windows asking for privilegis
 pacman -S qt5-wayland qt6-wayland
 pacman -S dolphin   ##file explorer
-pacman -S hyprpicker ##color picker
+yay -S hyprpicker-git ##color picker
 pacman -S ttf-jetbrains-mono-nerd
 pacman -S ttf-nerd-fonts-symbols
 pacman -S noto-fonts-cjk
@@ -108,7 +110,7 @@ yay -S chili-sddm-theme     ##theme for sddm login
                             modify the file /usr/lib/sddm/sddm.conf.d/sddm.config
                             and set the line of Current=chili
 sudo pacman -S grim swappy slurp  ##to take screenshots
-##------------------------SYMBOLIC-LINKS---------------------------------------------
+##------------------------SYMBOLIC-LINKS-execute.sh-script--------------------------------------------
 ln -s ~/.dotfiles/arch/fontconfig ~/.config/fontconfig
 ln -s ~/.dotfiles/arch/firefox ~/.config/firefox
 ln -s ~/.dotfiles/arch/gtk-3.0 ~/.config/gtk-3.0
