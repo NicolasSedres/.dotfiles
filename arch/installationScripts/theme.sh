@@ -1,5 +1,8 @@
 #!/bin/sh
 
+cp -r /home/kenshin/.config/gtk-3.0/themes/Material-Black-Cherry /usr/share/themes/Material-Black-Cherry
+cp -r /home/kenshin/.config/gtk-3.0/icons/Cherry-Numix-2021 /usr/share/icons/Cherry-Numix-2021
+
 # usage: import-gsettings
 config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
 if [ ! -f "$config" ]; then exit 1; fi
