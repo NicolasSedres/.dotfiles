@@ -1,3 +1,5 @@
+rm -rf ~/.config/starship
+ln -s ~/.dotfiles/arch/starship ~/.config/starship
 rm -rf ~/.config/fontconfig
 ln -s ~/.dotfiles/arch/fontconfig ~/.config/fontconfig
 rm -rf ~/.config/firefox
