@@ -26,3 +26,5 @@ rm -rf ~/.gtkrc-2.0
 ln -s ~/.dotfiles/arch/.gtkrc-2.0 ~/.gtkrc-2.0
 rm -rf ~/.gitconfig
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+rm -rf ~/.bashrc
+ln -s ~/.dotfiles/arch/.bashrc ~/.bashrc

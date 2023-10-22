@@ -111,6 +111,8 @@ yay -S chili-sddm-theme     ##theme for sddm login
                             and set the line of Current=chili
 sudo pacman -S grim swappy slurp  ##to take screenshots
 sudo pacman -S starship     ## to enhance prompt
+sudo pacman -S lsd          ## enhanced ls command
+sudo pacman -S bat          ## enhanced cat command
 ##------------------------SYMBOLIC-LINKS-execute.sh-script--------------------------------------------
 ln -s ~/.dotfiles/arch/fontconfig ~/.config/fontconfig
 ln -s ~/.dotfiles/arch/firefox ~/.config/firefox
