@@ -3,3 +3,7 @@
 	name = Nicolas Sedres
 [credential]
 	helper = store
+[color]
+	diff = auto
+	status = auto
+	branch = auto
