@@ -59,9 +59,9 @@ shift + cmd - 4 : yabai -m window --space 4;
 shift + cmd - 5 : yabai -m window --space 5;
 shift + cmd - 6 : yabai -m window --space 6;
 shift + cmd - 7 : yabai -m window --space 7;
-shift + cmd - 8 : yabai -m window --space 7;
-shift + cmd - 9 : yabai -m window --space 7;
-shift + cmd - 0 : yabai -m window --space 7;
+shift + cmd - 8 : yabai -m window --space 8;
+shift + cmd - 9 : yabai -m window --space 9;
+shift + cmd - 0 : yabai -m window --space 0;
 
 # -- Starting/Stopping/Restarting Yabai --
 
