@@ -1,0 +1,9 @@
+[user]
+	email = nicolas.sedres@nubank.com.br
+	name = Samu
+[credential]
+	helper = store
+[color]
+	diff = auto
+	status = auto
+	branch = auto
