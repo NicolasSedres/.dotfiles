@@ -7,3 +7,5 @@
 	diff = auto
 	status = auto
 	branch = auto
+[includeIf "gitdir:/Users/nicolas.sedres/dev/nu/"]
+	path = /Users/nicolas.sedres/.nugitconfig
