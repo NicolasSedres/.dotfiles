@@ -15,10 +15,8 @@ do
 done
 
 sketchybar --add item space_separator left                             \
-           --set space_separator icon="􀆊"                                \
-                                 icon.color=$BRGREEN \
-                                 icon.padding_left=4                   \
-                                 icon.padding_right=1                   \
+           --set space_separator icon=""                                \
+                                 icon.color=$ACCENT_COLOR \
                                  label.drawing=off                     \
                                  background.drawing=off                \
                                  script="$PLUGIN_DIR/space_windows.sh" \
