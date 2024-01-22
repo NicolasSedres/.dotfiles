@@ -16,8 +16,6 @@ ITEM_DIR="$CONFIG_DIR/items"
 # https://felixkratz.github.io/SketchyBar/config/bar
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
-bar=(
-)
 sketchybar --bar height=32 \
   color=$BAR_COLOR\
   border_color=$BAR_BORDER\
@@ -54,6 +52,7 @@ sketchybar --default icon.font="JetBrainsMono Nerd Font:Semibold:15.0"  \
                      # icon.padding_right=4
                      #
 # -- Left Side Items --
+source $ITEM_DIR/samu.sh
 source $ITEM_DIR/spaces.sh
 source $ITEM_DIR/front_app.sh
 

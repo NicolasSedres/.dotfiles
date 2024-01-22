@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SPACE_SIDS=(1 2 3 4 5 6 7 8 9 10)
-SPACE_LABEL=("一" "二" "三" "四" "五" "六" "七" "八" "九" "〇")
+SPACE_LABEL=("一" "二" "三" "四" "五" "六" "七" "八" "九" "十")
 
 for sid in "${SPACE_SIDS[@]}"
 do
