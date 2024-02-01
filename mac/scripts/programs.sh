@@ -1,1 +1,1 @@
-brew install kitty starship lsd bad
+brew install kitty starship lsd bad git-delta
