@@ -1,6 +1,7 @@
 [user]
 	email = nicolas.sedres@nubank.com.br
 	name = Samu
+	signingkey = 9E67215A05F008A9D20316F71133EAF26B20A8D9
 [credential]
 	helper = store
 [color]
@@ -27,3 +28,5 @@
     colorMoved = default
 [commit]
 	gpgsign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
