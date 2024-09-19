@@ -1,12 +1,12 @@
 {
     "position": "top",
     "layer": "top",
-    "height": 20,
+    "height": 33,
     "margin-top": 3,
     "margin-bottom": 0,
     "margin-left": 10,
     "margin-right": 10,
-    "modules-left": ["custom/launcher", "hyprland/workspaces"],
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
     "modules-center": ["custom/playerctl"],
     "modules-right": ["group/hardware", "backlight", "battery", "tray", "pulseaudio", "custom/cliphist", "network", "custom/updates", "clock", "custom/notifications"],
 
@@ -35,11 +35,28 @@
     "tooltip": false
   },
 
+    "hyprland/window": {
+        "format": " {class}",
+        "separate-outputs": true,
+        "rewrite": {
+            "(.*)Firefox": "",
+            "(.*)kitty": ""
+        },
+    },
+
   "hyprland/workspaces": {
-    "disable-scroll": false,
     "on-scroll-up": "hyprctl dispatch workspace -1",
     "on-scroll-down": "hyprctl dispatch workspace +1",
-    "format": "{icon}",
+    "format": "<sub>{icon}</sub> {windows}",
+    "window-rewrite-default": " ",
+    "window-rewrite": {
+      "title<.*youtube.*>": " ", // Windows whose titles contain "youtube"
+      "class<firefox>": " ", // Windows whose classes are "firefox"
+      "class<kitty>": " ", // Windows whose classes are "firefox"
+      "class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
+      "foot": " ", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
+      "code": "󰨞 ",
+    },
     "format-icons": {
       "1": "一",
       "2": "二",
@@ -52,13 +69,13 @@
       "9": "九",
       "10": "十",
     },
-         "persistent_workspaces": {
-               "*": 5
-         }
+    "persistent-workspaces": {
+             "*": 5, // 5 workspaces by default on every monitor
+       }
   },
 
   "custom/playerctl": {
-    "format": "{icon}   ::  <span>{}</span>",
+    "format": "{icon}   ::  <span>{0}</span>",
     "return-type": "json",
     "max-length": 40,
     "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",

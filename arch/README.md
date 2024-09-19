@@ -106,9 +106,11 @@ yay -S wlogout          ##to logout restart..
 pacman -S bluez bluez-utils ##bluetooth manager
 yay -S swaync   ##notification daemon
 yay -S swaylock-effects-git  ##to lock the computer
-yay -S chili-sddm-theme     ##theme for sddm login
-                            modify the file /usr/lib/sddm/sddm.conf.d/sddm.config
-                            and set the line of Current=chili
+yay -S simple-sddm-theme-2-git     ##theme for sddm login
+                                    modify the file /usr/lib/sddm/sddm.conf.d/sddm.config
+                                    add/create the file with the following lines:
+                                        [Theme]
+                                        Current=simple-sddm-2
 sudo pacman -S grim swappy slurp  ##to take screenshots
 sudo pacman -S starship     ## to enhance prompt
 sudo pacman -S lsd          ## enhanced ls command

@@ -28,3 +28,5 @@ rm -rf ~/.gitconfig
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 rm -rf ~/.bashrc
 ln -s ~/.dotfiles/arch/.bashrc ~/.bashrc
+
+ln -s ~/.dotfiles/arch/sddm-theme/berserk.png /usr/share/sddm/themes/simple-sddm-2/Backgrounds/berserk.png

@@ -2,6 +2,8 @@
 
 cp -r /home/kenshin/.config/gtk-3.0/themes/Material-Black-Cherry /usr/share/themes/Material-Black-Cherry
 cp -r /home/kenshin/.config/gtk-3.0/icons/Cherry-Numix-2021 /usr/share/icons/Cherry-Numix-2021
+cp ~/.dotfiles/arch/sddm-theme/berserk.png /usr/share/sddm/themes/simple-sddm-2/Backgrounds/berserk.png
+cp ~/.dotfiles/arch/sddm-theme/theme.conf /usr/share/sddm/themes/simple-sddm-2/theme.conf
 
 # usage: import-gsettings
 config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
