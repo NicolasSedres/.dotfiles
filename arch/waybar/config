@@ -38,10 +38,6 @@
     "hyprland/window": {
         "format": " {class}",
         "separate-outputs": true,
-        "rewrite": {
-            "(.*)Firefox": "",
-            "(.*)kitty": ""
-        },
     },
 
   "hyprland/workspaces": {
