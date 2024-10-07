@@ -9,20 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
+      ../../modules/nixos/bundle.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-boot.loader = {
-	grub = {
-		enable = true;
-		efiSupport = true;
-		devices = [ "nodev" ];
-		useOSProber = true;
-	};
-	efi = {
-		canTouchEfiVariables = true;
-	};
-};
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -129,22 +118,6 @@ boot.loader = {
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
-
-
-programs.hyprland = {
-	enable = true;
-	xwayland.enable = true;
-};
-environment.sessionVariables = {
-	WLR_NO_HARDWARE_CURSORS = "1";
-	NIXOS_OZONE_WL = "1";
-};
-hardware = {
-	opengl.enable = true;
-	nvidia.modesetting.enable = true;
-};
-services.displayManager.sddm.enable=true;
-services.displayManager.sddm.wayland.enable=true;
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
