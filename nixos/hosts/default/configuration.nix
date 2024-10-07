@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
       ../../modules/nixos/bundle.nix
     ];
 
@@ -65,17 +64,6 @@
      ];
    };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-   environment.systemPackages = with pkgs; [
- 	vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-	neovim
-	wget
-	os-prober
-	kitty
-	git
-   ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -120,15 +108,6 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-home-manager = {
-  # also pass inputs to home-manager modules
-  extraSpecialArgs = {inherit inputs;};
-  users = {
-    "kenshin" = import ./home.nix;
-  };
-};
- 
 
 }
 
