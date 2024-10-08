@@ -1,6 +1,6 @@
 {
   imports = [
-    ./hyprland.nix
+    ./bundle.nix
   ];
 
   home = {

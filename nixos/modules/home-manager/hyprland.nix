@@ -14,8 +14,7 @@
 		"5, monitor:DP-1"
 		"6, monitor:HDMI-A-1"
 		"7, monitor:HDMI-A-1"
-		"8, monitor:HDMI-A-1"
-		"9, monitor:HDMI-A-1"
+		"8, monitor:HDMI-A-1" "9, monitor:HDMI-A-1"
 		"0, monitor:HDMI-A-1"];
 	env = ["XCURSOR_SIZE,24"
 		"LIBVA_DRIVER_NAME,nvidia"
@@ -31,10 +30,7 @@
        	border_size = 3;
        	"col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
        	"col.inactive_border" = "rgba(595959aa)";
-
        	layout = "dwindle";
-
-       	no_cursor_warps = false;
       };
       dwindle = {
         pseudotile = true; # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
@@ -42,7 +38,7 @@
       };
       
       master = {
-        new_is_master = true;
+        new_status = true;
       };
 
       gestures = {
@@ -94,7 +90,7 @@
 	      };
 
       "$mainMod" = "SUPER";
-	bind [
+	bind = [
 		"$mainMod, T, exec, kitty"
 		"$mainMod SHIFT, Q, killactive"
 		"$mainMod, E, exec, dolphin"
@@ -182,9 +178,10 @@
 		"$mainMod, mouse:272, movewindow"
 		"$mainMod, mouse:273, resizewindow"
 	];
-	misc = [
-	disable_hyprland_logo = true
-	disable_splash_rendering = true];
+	misc = {
+	disable_hyprland_logo = true;
+	disable_splash_rendering = true;
+	};
 
     };
   };

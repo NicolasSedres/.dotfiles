@@ -39,7 +39,7 @@
       ];
     };
 
-    homeConfigurations.amper = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.kenshin = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
       modules = [ ./modules/home-manager/home.nix ];
     };
