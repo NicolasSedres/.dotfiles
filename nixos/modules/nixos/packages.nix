@@ -7,5 +7,8 @@
 	kitty
 	git
 	home-manager
+	#hyprland utils
+	wl-clipboard
+	cliphist
    ];
 }

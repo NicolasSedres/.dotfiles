@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/nixos/bundle.nix
+      ../../modules/nixos/packages.nix
     ];
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -54,15 +55,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-   users.users.kenshin = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     packages = with pkgs; [
-       firefox
-     ];
-   };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
