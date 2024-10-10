@@ -8,8 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/nixos/bundle.nix
-      ../../modules/nixos/packages.nix
+      ../../nixos/bundle.nix
+      ../../nixos/packages.nix
     ];
 
   networking.hostName = "nixos"; # Define your hostname.

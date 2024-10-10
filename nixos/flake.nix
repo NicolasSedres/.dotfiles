@@ -41,7 +41,7 @@
 
     homeConfigurations.kenshin = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
-      modules = [ ./modules/home-manager/home.nix ];
+      modules = [ ./home-manager/home.nix ];
     };
   };
 }
