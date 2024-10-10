@@ -19,6 +19,9 @@
 		"7, monitor:HDMI-A-1"
 		"8, monitor:HDMI-A-1" "9, monitor:HDMI-A-1"
 		"0, monitor:HDMI-A-1"];
+	exec-once = [
+		"waybar"
+	];
 
 	env = ["XCURSOR_SIZE,24"
 		"LIBVA_DRIVER_NAME,nvidia"

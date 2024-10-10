@@ -1,0 +1,222 @@
+{
+    "position": "top",
+    "layer": "top",
+    "height": 33,
+    "margin-top": 3,
+    "margin-bottom": 0,
+    "margin-left": 10,
+    "margin-right": 10,
+    "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
+    "modules-center": ["custom/playerctl"],
+    "modules-right": ["group/hardware", "backlight", "battery", "tray", "pulseaudio", "custom/cliphist", "network", "custom/updates", "clock", "custom/notifications"],
+
+  "custom/launcher": {
+    "format": "侍",
+    "on-click": "bash $HOME/.config/rofi/launchers/type-1/launcher.sh",
+  },
+
+  "custom/cliphist": {
+    "format": "",
+    "on-click": "sleep 0.1 && ~/.dotfiles/arch/scripts/cliphist.sh",
+    "on-click-right": "sleep 0.1 && ~/.dotfiles/arch/scripts/cliphist.sh d",
+    "on-click-middle": "sleep 0.1 && ~/.dotfiles/arch/scripts/cliphist.sh w",
+    "tooltip": false
+   },
+
+   // Updates Count
+  "custom/updates": {
+    "format": " {}",
+    "tooltip-format": "{}",
+    "escape": true,
+    "return-type": "json",       
+    "exec": "~/.dotfiles/arch/scripts/updates.sh",
+    "restart-interval": 60,
+   // "on-click": "kitty -e ~/dotfiles/scripts/installupdates.sh",
+    "tooltip": false
+  },
+
+    "hyprland/window": {
+        "format": " {class}",
+        "separate-outputs": true,
+    },
+
+  "hyprland/workspaces": {
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "format": "<sub>{icon}</sub> {windows}",
+    "window-rewrite-default": " ",
+    "window-rewrite": {
+      "title<.*youtube.*>": " ", // Windows whose titles contain "youtube"
+      "class<firefox>": " ", // Windows whose classes are "firefox"
+      "class<kitty>": " ", // Windows whose classes are "firefox"
+      "class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
+      "foot": " ", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
+      "code": "󰨞 ",
+    },
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十",
+    },
+    "persistent-workspaces": {
+        "DP-1": [1, 2, 3, 4, 5],
+        "HDMI-A-1": [5, 6, 7, 8, 9, 10],
+       }
+  },
+
+  "custom/playerctl": {
+    "format": "{icon}   ::  <span>{0}</span>",
+    "return-type": "json",
+    "max-length": 40,
+    "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+    "on-click-middle": "playerctl play-pause",
+    "on-click": "playerctl previous",
+    "on-click-right": "playerctl next",
+    "format-icons": {
+      "Playing": "<span foreground='#B1B946'>󰝚</span>",
+      "Paused": "<span foreground='#47423E'>󰝛</span>"
+    },
+  },
+
+  "group/hardware": {
+    "orientation": "horizontal",
+    "modules": [
+        "disk",
+        "cpu",
+        "memory",
+        "custom/gpu-usage"
+    ]
+  },
+
+  "memory": {
+    "format": "󰍛 {}%",
+    "format-alt": "󰍛 {used}/{total} GiB",
+    "interval": 1
+  },
+
+  "cpu": {
+    "format": "󰻠 {usage}%",
+    "format-alt": "󰻠 {avg_frequency} GHz",
+    "interval": 1
+  },
+
+  "disk": {
+    "format": "󰆼 {percentage_used}%",
+    "format-alt": "󰆼 {used}/{total} GiB",
+    "interval": 1,
+    "path": "/"
+  },
+
+  "custom/gpu-usage": {
+    "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+    "format": "󰢮 {}%",
+    "return-type": "",
+    "interval": 1
+  },
+
+	"network": {
+        	"format-wifi": "󰤨",
+        	"format-ethernet": " ",
+        	"format-linked": " {ifname} (No IP)",
+        	"format-disconnected": "󰤭",
+        	"format-alt": "󰩟 {ifname}: {ipaddr}/{cidr}",
+          "tooltip-format": "{essid}",
+          "on-click-right": "kitty -o initial_window_width=500 -o initial_window_height=500 nmtui",
+	},
+
+	"pulseaudio": {
+		"format": "{icon}",
+        	"format-muted": "󰝟",
+		"format-icons": {
+			"default": ["󰕿", "󰖀", "󰕾"]
+		},
+		"on-click": "pamixer -t",
+		"on-click-right": "pavucontrol",
+    "tooltip-format": "{volume}%"
+  },
+
+	"battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format":"{icon}",
+        "format-charging": "󰂄",
+        "format-plugged": "󱐋",
+        "format-alt": "{icon} <span font='Iosevka'>{capacity}% | {time}</span>",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "interval": 1,
+        "tooltip-format": "{capacity}% - {time}",
+	},
+
+
+  "bluetooth": {
+	"format-on": "󰂯",
+  "format-off": "󰂲",
+  "format-connected": "󰂱",
+  "format-disabled": "󰂲",
+  "on-click": "bash ~/.config/waybar/scripts/bluetoggle.sh",
+  "on-click-right": "kitty -o initial_window_width=500 -o initial_window_height=500 bluetuith",
+	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+},
+
+  "custom/notifications": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󰂚<span foreground='#DB4740'><sup></sup></span>",
+      "none": "󰂚",
+      "dnd-notification": "󰂛<span foreground='#DB4740'><sup></sup></span>",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󰂚<span foreground='#DB4740'><sup></sup></span>",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󰂛<span foreground='#DB4740'><sup></sup></span>",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+	"tray": {
+		"icon-size": 16,
+		"spacing": 5
+	},
+
+	"backlight": {
+        // "device": "acpi_video1",
+	"format": "{icon}",
+        "format-icons": ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"],
+//	"on-scroll-up":,
+//	"on-scroll-down":,
+  "tooltip-format": "{percent}%"
+	},
+
+
+	"clock": {
+		"format": "{:%H:%M:%OS}",
+    "interval": 1,
+		"tooltip": "false",
+        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        	"format-alt": "{:%d/%m/%Y}",
+	},
+
+  }
+}

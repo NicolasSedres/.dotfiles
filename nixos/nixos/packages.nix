@@ -10,5 +10,10 @@
 	#hyprland utils
 	wl-clipboard
 	cliphist
+	waybar
    ];
+   
+  fonts.packages = with pkgs; [
+	(nerdfonts.override { fonts = [ "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
+  ];
 }
