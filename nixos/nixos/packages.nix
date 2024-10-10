@@ -13,6 +13,7 @@
 	waybar
 	rofi
 	hyprpaper
+	swaylock-effects
 	#CLI
 	starship
    ];
