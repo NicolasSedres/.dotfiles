@@ -21,6 +21,7 @@
 		"0, monitor:HDMI-A-1"];
 	exec-once = [
 		"waybar"
+		"hyprpaper"
 	];
 
 	env = ["XCURSOR_SIZE,24"

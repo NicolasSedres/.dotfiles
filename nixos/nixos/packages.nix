@@ -12,6 +12,7 @@
 	cliphist
 	waybar
 	rofi
+	hyprpaper
 	#CLI
 	starship
    ];
