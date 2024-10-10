@@ -20,6 +20,8 @@
 	swaylock-effects
 	#CLI
 	starship
+	lsd
+	bat
    ];
    
   fonts.packages = with pkgs; [

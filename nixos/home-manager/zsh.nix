@@ -2,7 +2,6 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    # enableAutosuggestions = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
@@ -20,6 +19,9 @@
       pkgs = "nvim ${flakeDir}/nixos/packages.nix";
 
       ll = "ls -l";
+      ls = "lsd";
+      cat = "bat";
+      grep = "grep --color=auto";
       vim = "nvim";
       se = "sudoedit";
       ff = "fastfetch";
