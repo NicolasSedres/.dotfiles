@@ -25,6 +25,7 @@
       vim = "nvim";
       se = "sudoedit";
       ff = "fastfetch";
+      cdnix = "cd ~/.dotfiles/nixos";
     };
 
     history.size = 10000;

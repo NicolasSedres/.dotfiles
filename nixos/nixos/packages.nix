@@ -11,6 +11,9 @@
 	kitty
 	git
 	home-manager
+	#audio
+	pamixer
+	pavucontrol
 	#hyprland utils
 	wl-clipboard
 	cliphist
@@ -22,6 +25,7 @@
 	starship
 	lsd
 	bat
+	playerctl
    ];
    
   fonts.packages = with pkgs; [
