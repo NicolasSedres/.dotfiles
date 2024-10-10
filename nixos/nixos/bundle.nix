@@ -5,5 +5,6 @@ imports = [
 	./env.nix
 	./hyprland.nix
 	./sddm.nix
+	./zsh.nix
 ];
 }

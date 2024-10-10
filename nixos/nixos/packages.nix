@@ -12,6 +12,8 @@
 	cliphist
 	waybar
 	rofi
+	#CLI
+	starship
    ];
    
   fonts.packages = with pkgs; [
