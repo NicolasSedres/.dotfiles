@@ -101,5 +101,11 @@
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+fileSystems."/mnt/ssd" = {
+  device = "/dev/disk/by-uuid/9a80d5b7-c3e8-4d12-a5e5-1862fbb58aef";  # UUID from blkid
+  fsType = "ext4";                         # or whatever filesystem you have
+  options = [ "defaults" ];
+};
+
 }
 
