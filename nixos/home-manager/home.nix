@@ -11,5 +11,6 @@
 
   home.file = {
 	".config/waybar".source = ./configs/waybar;
+	".config/rofi".source = ./configs/rofi;
   };
 }

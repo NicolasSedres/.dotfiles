@@ -11,6 +11,7 @@
 	wl-clipboard
 	cliphist
 	waybar
+	rofi
    ];
    
   fonts.packages = with pkgs; [
