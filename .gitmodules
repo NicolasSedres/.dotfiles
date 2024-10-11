@@ -1,6 +1,6 @@
 [submodule "samu-startpage"]
 	path = samu-startpage
 	url = https://github.com/NicolasSedres/samu-startpage.git
-[submodule ".config/nvim"]
-	path = nvim
+[submodule "nvim"]
+	path = nixos/home-manager/configs/nvim
 	url = https://github.com/NicolasSedres/nvim.git
