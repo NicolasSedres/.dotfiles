@@ -4,8 +4,17 @@
   };
 
    environment.systemPackages = with pkgs; [
- 	vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #nvim and dependencies
 	neovim
+    fzf
+    nodejs
+    python3
+    unzip
+    gnumake
+    gcc
+    cmake
+    # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+ 	vim 
 	wget
 	os-prober
 	kitty
@@ -26,6 +35,9 @@
 	lsd
 	bat
 	playerctl
+    #programming
+    clojure
+    leiningen
    ];
    
   fonts.packages = with pkgs; [

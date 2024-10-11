@@ -10,6 +10,7 @@
   };
 
   home.file = {
+	".config/nvim".source = ./configs/nvim;
 	".config/waybar".source = ./configs/waybar;
 	".config/rofi".source = ./configs/rofi;
   };
