@@ -13,7 +13,7 @@ ln -s ~/.dotfiles/arch/kitty ~/.config/kitty
 rm -rf ~/.config/neofetch
 ln -s ~/.dotfiles/arch/neofetch ~/.config/neofetch
 rm -rf ~/.config/nvim
-ln -s ~/.dotfiles/nvim ~/.config/nvim
+ln -s ~/.dotfiles/nixos/home-manager/configs/nvim ~/.config/nvim
 rm -rf ~/.config/rofi
 ln -s ~/.dotfiles/arch/rofi ~/.config/rofi
 rm -rf ~/.config/swaylock
