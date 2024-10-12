@@ -1,0 +1,3 @@
+[submodule "nvim"]
+	path = nixos/home-manager/configs/nvim
+	url = https://github.com/NicolasSedres/nvim
