@@ -38,6 +38,8 @@
     #programming
     clojure
     leiningen
+    #others
+    discord
    ];
    
   fonts.packages = with pkgs; [
