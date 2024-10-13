@@ -30,11 +30,15 @@
 	rofi
 	hyprpaper
 	swaylock-effects
+    pipewire
+    wireplumber
 	#CLI
 	starship
 	lsd
 	bat
 	playerctl
+    htop
+    ripgrep
     #programming
     clojure
     leiningen
@@ -45,4 +49,5 @@
   fonts.packages = with pkgs; [
 	(nerdfonts.override { fonts = [ "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
   ];
+
 }

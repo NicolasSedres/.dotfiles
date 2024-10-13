@@ -9,5 +9,6 @@ imports = [
 	./zsh.nix
 	./steam.nix
 	./proton.nix
+    ./pipewire.nix
 ];
 }
