@@ -44,6 +44,7 @@
     leiningen
     #others
     discord
+    wowup-cf
    ];
    
   fonts.packages = with pkgs; [

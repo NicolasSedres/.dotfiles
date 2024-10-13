@@ -10,5 +10,6 @@ imports = [
 	./steam.nix
 	./proton.nix
     ./pipewire.nix
+    ./corsair.nix
 ];
 }

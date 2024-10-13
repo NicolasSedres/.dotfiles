@@ -13,5 +13,6 @@
 	".config/nvim".source = ./configs/nvim;
 	".config/waybar".source = ./configs/waybar;
 	".config/rofi".source = ./configs/rofi;
+	".config/ckb-next".source = ./configs/ckb-next;
   };
 }
