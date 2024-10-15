@@ -30,8 +30,11 @@
 	rofi
 	hyprpaper
 	swaylock-effects
-    pipewire
-    wireplumber
+    pipewire #screenshare
+    wireplumber #screenshare
+    grim #screenshot
+    swappy #screenshot
+    slurp #select a portion of screen
 	#CLI
 	starship
 	lsd

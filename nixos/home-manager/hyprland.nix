@@ -22,6 +22,7 @@
 	exec-once = [
 		"waybar"
 		"hyprpaper"
+        "ckb-next -b"
 	];
 
 	env = ["XCURSOR_SIZE,24"
