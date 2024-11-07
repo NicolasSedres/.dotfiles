@@ -5,6 +5,7 @@
 		./swaylock.nix
 		./kitty.nix
 		./zsh.nix
+		./git.nix
 		./starship.nix
 	];
 }
