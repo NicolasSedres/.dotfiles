@@ -4,12 +4,15 @@
   };
 
    environment.systemPackages = with pkgs; [
+    ntfs3g
+    woeusb
     #nvim and dependencies
 	neovim
     fzf
     nodejs
     python3
     unzip
+    unrar
     gnumake
     gcc
     cmake
@@ -19,8 +22,7 @@
 	os-prober
 	kitty
 	git
-	home-manager
-	#audio
+	home-manager #audio
 	pamixer
 	pavucontrol
 	#hyprland utils
@@ -49,6 +51,8 @@
     #others
     discord
     wowup-cf
+    pcsx2
+    rpcs3
    ];
    
   fonts.packages = with pkgs; [
