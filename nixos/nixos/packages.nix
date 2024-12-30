@@ -53,6 +53,7 @@
     wowup-cf
     pcsx2
     rpcs3
+    lutris
    ];
    
   fonts.packages = with pkgs; [
