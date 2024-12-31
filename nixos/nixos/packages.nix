@@ -54,7 +54,10 @@
     pcsx2
     rpcs3
     lutris
-   ];
+    #sddm
+    libsForQt5.qt5.qtquickcontrols2
+    libsForQt5.qt5.qtgraphicaleffects
+    ];
    
   fonts.packages = with pkgs; [
 	(nerdfonts.override { fonts = [ "JetBrainsMono" "NerdFontsSymbolsOnly" ]; })
