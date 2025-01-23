@@ -20,9 +20,9 @@
 		"8, monitor:HDMI-A-1" "9, monitor:HDMI-A-1"
 		"0, monitor:HDMI-A-1"];
 	exec-once = [
-		"waybar"
 		"hyprpaper"
         "ckb-next -b"
+        "waybar"
 	];
 
 	env = ["XCURSOR_SIZE,24"
