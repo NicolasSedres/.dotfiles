@@ -11,6 +11,7 @@ imports = [
 	./steam.nix
 	./proton.nix
     ./pipewire.nix
+    ./dynamic-link-exe.nix
     ./corsair.nix
 ];
 }
