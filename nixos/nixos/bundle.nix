@@ -13,5 +13,6 @@ imports = [
     ./pipewire.nix
     ./dynamic-link-exe.nix
     ./corsair.nix
+    ./wine.nix
 ];
 }
