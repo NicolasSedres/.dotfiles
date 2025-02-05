@@ -34,7 +34,7 @@
       
 	 input = {
 		kb_layout = "us";
-        kb_variant = "intl"; 
+        # kb_variant = "intl"; 
 		follow_mouse = 1;
 		touchpad = {
 		  natural_scroll = false;
