@@ -37,7 +37,7 @@
     grim #screenshot
     swappy #screenshot
     slurp #select a portion of screen
-    dolphin #filemanager
+    kdePackages.dolphin #filemanager
 	#CLI
 	starship
 	lsd
