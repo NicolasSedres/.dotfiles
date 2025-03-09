@@ -13,6 +13,7 @@
     python3
     unzip
     unrar
+    p7zip
     gnumake
     gcc
     cmake
