@@ -5,6 +5,7 @@
 
    environment.systemPackages = with pkgs; [
     ntfs3g
+    exfatprogs
     woeusb
     #nvim and dependencies
 	neovim
